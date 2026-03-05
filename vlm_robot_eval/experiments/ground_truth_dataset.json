@@ -1,0 +1,1168 @@
+[
+  {
+    "id": 571804,
+    "image": "coco_val2017_subset/000000571804.jpg",
+    "instruction": "Pick up the bowl",
+    "ground_truth": {
+      "scene_type": "pick",
+      "objects": [
+        "bowl"
+      ],
+      "target_objects": [
+        "bowl"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "bowl"
+        },
+        {
+          "action": "grasp",
+          "target": "bowl"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 66635,
+    "image": "coco_val2017_subset/000000066635.jpg",
+    "instruction": "Pick up the mouse",
+    "ground_truth": {
+      "scene_type": "pick",
+      "objects": [
+        "mouse",
+        "remote"
+      ],
+      "target_objects": [
+        "mouse"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "mouse"
+        },
+        {
+          "action": "grasp",
+          "target": "mouse"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 426253,
+    "image": "coco_val2017_subset/000000426253.jpg",
+    "instruction": "Pick up the bottle",
+    "ground_truth": {
+      "scene_type": "pick",
+      "objects": [
+        "bottle"
+      ],
+      "target_objects": [
+        "bottle"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "bottle"
+        },
+        {
+          "action": "grasp",
+          "target": "bottle"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 114049,
+    "image": "coco_val2017_subset/000000114049.jpg",
+    "instruction": "Move the chair",
+    "ground_truth": {
+      "scene_type": "move",
+      "objects": [
+        "backpack",
+        "chair"
+      ],
+      "target_objects": [
+        "chair"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "chair"
+        },
+        {
+          "action": "push",
+          "target": "chair"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 494188,
+    "image": "coco_val2017_subset/000000494188.jpg",
+    "instruction": "Move the chair",
+    "ground_truth": {
+      "scene_type": "move",
+      "objects": [
+        "chair"
+      ],
+      "target_objects": [
+        "chair"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "chair"
+        },
+        {
+          "action": "push",
+          "target": "chair"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 182611,
+    "image": "coco_val2017_subset/000000182611.jpg",
+    "instruction": "Pick up the cup and place it on the dining table",
+    "ground_truth": {
+      "scene_type": "pick_and_place",
+      "objects": [
+        "bottle",
+        "bowl",
+        "cup",
+        "dining table"
+      ],
+      "target_objects": [
+        "cup",
+        "dining table"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "cup"
+        },
+        {
+          "action": "grasp",
+          "target": "cup"
+        },
+        {
+          "action": "move_to",
+          "target": "dining table"
+        },
+        {
+          "action": "release",
+          "target": "cup"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 133244,
+    "image": "coco_val2017_subset/000000133244.jpg",
+    "instruction": "Pick up the bottle",
+    "ground_truth": {
+      "scene_type": "pick",
+      "objects": [
+        "bottle",
+        "chair"
+      ],
+      "target_objects": [
+        "bottle"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "bottle"
+        },
+        {
+          "action": "grasp",
+          "target": "bottle"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 509260,
+    "image": "coco_val2017_subset/000000509260.jpg",
+    "instruction": "Pick up the book",
+    "ground_truth": {
+      "scene_type": "pick",
+      "objects": [
+        "book"
+      ],
+      "target_objects": [
+        "book"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "book"
+        },
+        {
+          "action": "grasp",
+          "target": "book"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 466256,
+    "image": "coco_val2017_subset/000000466256.jpg",
+    "instruction": "Move to the dining table",
+    "ground_truth": {
+      "scene_type": "navigate",
+      "objects": [
+        "dining table"
+      ],
+      "target_objects": [
+        "dining table"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "dining table"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 50149,
+    "image": "coco_val2017_subset/000000050149.jpg",
+    "instruction": "Pick up the bowl",
+    "ground_truth": {
+      "scene_type": "pick",
+      "objects": [
+        "bowl"
+      ],
+      "target_objects": [
+        "bowl"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "bowl"
+        },
+        {
+          "action": "grasp",
+          "target": "bowl"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 88848,
+    "image": "coco_val2017_subset/000000088848.jpg",
+    "instruction": "Pick up the backpack",
+    "ground_truth": {
+      "scene_type": "pick",
+      "objects": [
+        "backpack"
+      ],
+      "target_objects": [
+        "backpack"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "backpack"
+        },
+        {
+          "action": "grasp",
+          "target": "backpack"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 171382,
+    "image": "coco_val2017_subset/000000171382.jpg",
+    "instruction": "Pick up the backpack",
+    "ground_truth": {
+      "scene_type": "pick",
+      "objects": [
+        "backpack"
+      ],
+      "target_objects": [
+        "backpack"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "backpack"
+        },
+        {
+          "action": "grasp",
+          "target": "backpack"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 579070,
+    "image": "coco_val2017_subset/000000579070.jpg",
+    "instruction": "Pick up the cup and place it on the dining table",
+    "ground_truth": {
+      "scene_type": "pick_and_place",
+      "objects": [
+        "bottle",
+        "bowl",
+        "chair",
+        "cup",
+        "dining table"
+      ],
+      "target_objects": [
+        "cup",
+        "dining table"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "cup"
+        },
+        {
+          "action": "grasp",
+          "target": "cup"
+        },
+        {
+          "action": "move_to",
+          "target": "dining table"
+        },
+        {
+          "action": "release",
+          "target": "cup"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 99182,
+    "image": "coco_val2017_subset/000000099182.jpg",
+    "instruction": "Pick up the book",
+    "ground_truth": {
+      "scene_type": "pick",
+      "objects": [
+        "book"
+      ],
+      "target_objects": [
+        "book"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "book"
+        },
+        {
+          "action": "grasp",
+          "target": "book"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 415716,
+    "image": "coco_val2017_subset/000000415716.jpg",
+    "instruction": "Move the chair",
+    "ground_truth": {
+      "scene_type": "move",
+      "objects": [
+        "chair",
+        "laptop",
+        "mouse"
+      ],
+      "target_objects": [
+        "chair"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "chair"
+        },
+        {
+          "action": "push",
+          "target": "chair"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 389381,
+    "image": "coco_val2017_subset/000000389381.jpg",
+    "instruction": "Pick up the bowl",
+    "ground_truth": {
+      "scene_type": "pick",
+      "objects": [
+        "bowl",
+        "dining table"
+      ],
+      "target_objects": [
+        "bowl"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "bowl"
+        },
+        {
+          "action": "grasp",
+          "target": "bowl"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 549220,
+    "image": "coco_val2017_subset/000000549220.jpg",
+    "instruction": "Pick up the book",
+    "ground_truth": {
+      "scene_type": "pick",
+      "objects": [
+        "book"
+      ],
+      "target_objects": [
+        "book"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "book"
+        },
+        {
+          "action": "grasp",
+          "target": "book"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 483667,
+    "image": "coco_val2017_subset/000000483667.jpg",
+    "instruction": "Move the chair",
+    "ground_truth": {
+      "scene_type": "move",
+      "objects": [
+        "chair"
+      ],
+      "target_objects": [
+        "chair"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "chair"
+        },
+        {
+          "action": "push",
+          "target": "chair"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 353180,
+    "image": "coco_val2017_subset/000000353180.jpg",
+    "instruction": "Pick up the backpack",
+    "ground_truth": {
+      "scene_type": "pick",
+      "objects": [
+        "backpack"
+      ],
+      "target_objects": [
+        "backpack"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "backpack"
+        },
+        {
+          "action": "grasp",
+          "target": "backpack"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 231508,
+    "image": "coco_val2017_subset/000000231508.jpg",
+    "instruction": "Move the chair",
+    "ground_truth": {
+      "scene_type": "move",
+      "objects": [
+        "chair"
+      ],
+      "target_objects": [
+        "chair"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "chair"
+        },
+        {
+          "action": "push",
+          "target": "chair"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 280779,
+    "image": "coco_val2017_subset/000000280779.jpg",
+    "instruction": "Pick up the backpack",
+    "ground_truth": {
+      "scene_type": "pick",
+      "objects": [
+        "backpack"
+      ],
+      "target_objects": [
+        "backpack"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "backpack"
+        },
+        {
+          "action": "grasp",
+          "target": "backpack"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 324715,
+    "image": "coco_val2017_subset/000000324715.jpg",
+    "instruction": "Pick up the laptop",
+    "ground_truth": {
+      "scene_type": "pick",
+      "objects": [
+        "laptop"
+      ],
+      "target_objects": [
+        "laptop"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "laptop"
+        },
+        {
+          "action": "grasp",
+          "target": "laptop"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 129113,
+    "image": "coco_val2017_subset/000000129113.jpg",
+    "instruction": "Move to the dining table",
+    "ground_truth": {
+      "scene_type": "navigate",
+      "objects": [
+        "dining table"
+      ],
+      "target_objects": [
+        "dining table"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "dining table"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 434459,
+    "image": "coco_val2017_subset/000000434459.jpg",
+    "instruction": "Move the chair",
+    "ground_truth": {
+      "scene_type": "move",
+      "objects": [
+        "chair",
+        "dining table"
+      ],
+      "target_objects": [
+        "chair"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "chair"
+        },
+        {
+          "action": "push",
+          "target": "chair"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 251537,
+    "image": "coco_val2017_subset/000000251537.jpg",
+    "instruction": "Move to the dining table",
+    "ground_truth": {
+      "scene_type": "navigate",
+      "objects": [
+        "dining table"
+      ],
+      "target_objects": [
+        "dining table"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "dining table"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 182155,
+    "image": "coco_val2017_subset/000000182155.jpg",
+    "instruction": "Pick up the remote",
+    "ground_truth": {
+      "scene_type": "pick",
+      "objects": [
+        "remote"
+      ],
+      "target_objects": [
+        "remote"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "remote"
+        },
+        {
+          "action": "grasp",
+          "target": "remote"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 564336,
+    "image": "coco_val2017_subset/000000564336.jpg",
+    "instruction": "Pick up the bottle",
+    "ground_truth": {
+      "scene_type": "pick",
+      "objects": [
+        "bottle",
+        "chair",
+        "dining table",
+        "laptop"
+      ],
+      "target_objects": [
+        "bottle"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "bottle"
+        },
+        {
+          "action": "grasp",
+          "target": "bottle"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 547336,
+    "image": "coco_val2017_subset/000000547336.jpg",
+    "instruction": "Pick up the book",
+    "ground_truth": {
+      "scene_type": "pick",
+      "objects": [
+        "book",
+        "cup"
+      ],
+      "target_objects": [
+        "book"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "book"
+        },
+        {
+          "action": "grasp",
+          "target": "book"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 547816,
+    "image": "coco_val2017_subset/000000547816.jpg",
+    "instruction": "Pick up the bottle",
+    "ground_truth": {
+      "scene_type": "pick",
+      "objects": [
+        "bottle"
+      ],
+      "target_objects": [
+        "bottle"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "bottle"
+        },
+        {
+          "action": "grasp",
+          "target": "bottle"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 340175,
+    "image": "coco_val2017_subset/000000340175.jpg",
+    "instruction": "Move the chair",
+    "ground_truth": {
+      "scene_type": "move",
+      "objects": [
+        "book",
+        "chair",
+        "dining table"
+      ],
+      "target_objects": [
+        "chair"
+      ],
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "chair"
+        },
+        {
+          "action": "push",
+          "target": "chair"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  }
+]

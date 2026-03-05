@@ -1,0 +1,102 @@
+[
+  {
+    "image": "scene1.jpg",
+    "instruction": "Pick up the red cup",
+    "objects": ["red cup", "blue box", "table"]
+  },
+  {
+    "image": "scene2.jpg",
+    "instruction": "Move to the blue box",
+    "objects": ["red cup", "blue box", "table"]
+  },
+  {
+    "image": "scene3.jpg",
+    "instruction": "Grasp the green bottle",
+    "objects": ["green bottle", "plate", "table"]
+  },
+  {
+    "image": "scene4.jpg",
+    "instruction": "Release the cube onto the table",
+    "objects": ["cube", "table", "bowl"]
+  },
+  {
+    "image": "scene5.jpg",
+    "instruction": "Push the yellow block forward",
+    "objects": ["yellow block", "table", "red cup"]
+  },
+  {
+    "image": "scene6.jpg",
+    "instruction": "Rotate the knob",
+    "objects": ["knob", "panel", "table"]
+  },
+  {
+    "image": "scene7.jpg",
+    "instruction": "Pick up the blue box and place it on the table",
+    "objects": ["blue box", "table", "red cup"]
+  },
+  {
+    "image": "scene8.jpg",
+    "instruction": "Move to the plate",
+    "objects": ["plate", "fork", "table"]
+  },
+  {
+    "image": "scene9.jpg",
+    "instruction": "Grasp the fork",
+    "objects": ["fork", "plate", "table"]
+  },
+  {
+    "image": "scene10.jpg",
+    "instruction": "Release the fork",
+    "objects": ["fork", "plate", "table"]
+  },
+  {
+    "image": "scene11.jpg",
+    "instruction": "Push the blue box to the left",
+    "objects": ["blue box", "red cup", "table"]
+  },
+  {
+    "image": "scene12.jpg",
+    "instruction": "Rotate the red knob",
+    "objects": ["red knob", "panel", "table"]
+  },
+  {
+    "image": "scene13.jpg",
+    "instruction": "Move to the green bottle",
+    "objects": ["green bottle", "plate", "table"]
+  },
+  {
+    "image": "scene14.jpg",
+    "instruction": "Pick up the cube",
+    "objects": ["cube", "bowl", "table"]
+  },
+  {
+    "image": "scene15.jpg",
+    "instruction": "Release the cube into the bowl",
+    "objects": ["cube", "bowl", "table"]
+  },
+  {
+    "image": "scene16.jpg",
+    "instruction": "Push the plate backward",
+    "objects": ["plate", "fork", "table"]
+  },
+  {
+    "image": "scene17.jpg",
+    "instruction": "Rotate the knob clockwise",
+    "objects": ["knob", "panel", "table"]
+  },
+  {
+    "image": "scene18.jpg",
+    "instruction": "Move to the red cup",
+    "objects": ["red cup", "blue box", "table"]
+  },
+  {
+    "image": "scene19.jpg",
+    "instruction": "Grasp the red cup",
+    "objects": ["red cup", "blue box", "table"]
+  },
+  {
+    "image": "scene20.jpg",
+    "instruction": "Release the red cup",
+    "objects": ["red cup", "blue box", "table"]
+  }
+]

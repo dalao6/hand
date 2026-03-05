@@ -1,0 +1,4910 @@
+[
+  {
+    "id": 1,
+    "image": "coco_val2017_subset_v3/000000361238.jpg",
+    "instruction": "Pick up the cup",
+    "reasoning_type": "simple",
+    "difficulty_level": 1,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            0.0,
+            238.8,
+            640.0,
+            241.2
+          ]
+        },
+        {
+          "id": "backpack_1",
+          "category": "backpack",
+          "bbox": [
+            3.24,
+            230.5,
+            105.7,
+            75.51
+          ]
+        },
+        {
+          "id": "cup_1",
+          "category": "cup",
+          "bbox": [
+            3.02,
+            299.04,
+            72.91,
+            93.45
+          ]
+        }
+      ],
+      "target_object_id": "cup_1",
+      "relation_object_id": "",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "cup_1"
+        },
+        {
+          "action": "grasp",
+          "target": "cup_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 2,
+    "image": "coco_val2017_subset_v3/000000361238.jpg",
+    "instruction": "Pick up the dining table",
+    "reasoning_type": "simple",
+    "difficulty_level": 1,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            0.0,
+            238.8,
+            640.0,
+            241.2
+          ]
+        },
+        {
+          "id": "backpack_1",
+          "category": "backpack",
+          "bbox": [
+            3.24,
+            230.5,
+            105.7,
+            75.51
+          ]
+        },
+        {
+          "id": "cup_1",
+          "category": "cup",
+          "bbox": [
+            3.02,
+            299.04,
+            72.91,
+            93.45
+          ]
+        }
+      ],
+      "target_object_id": "dining_table_1",
+      "relation_object_id": "",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "dining_table_1"
+        },
+        {
+          "action": "grasp",
+          "target": "dining_table_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 3,
+    "image": "coco_val2017_subset_v3/000000141821.jpg",
+    "instruction": "Pick up the bottle",
+    "reasoning_type": "simple",
+    "difficulty_level": 1,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "bottle_1",
+          "category": "bottle",
+          "bbox": [
+            514.59,
+            155.14,
+            125.41,
+            317.83
+          ]
+        },
+        {
+          "id": "bowl_1",
+          "category": "bowl",
+          "bbox": [
+            0.79,
+            286.14,
+            94.62,
+            100.18
+          ]
+        }
+      ],
+      "target_object_id": "bottle_1",
+      "relation_object_id": "",
+      "scene_type": "kitchen",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "bottle_1"
+        },
+        {
+          "action": "grasp",
+          "target": "bottle_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 4,
+    "image": "coco_val2017_subset_v3/000000321118.jpg",
+    "instruction": "Pick up the mouse",
+    "reasoning_type": "simple",
+    "difficulty_level": 1,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "laptop_1",
+          "category": "laptop",
+          "bbox": [
+            87.68,
+            3.49,
+            464.12,
+            416.47
+          ]
+        },
+        {
+          "id": "mouse_1",
+          "category": "mouse",
+          "bbox": [
+            517.49,
+            267.89,
+            121.03,
+            59.09
+          ]
+        }
+      ],
+      "target_object_id": "mouse_1",
+      "relation_object_id": "",
+      "scene_type": "office",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "mouse_1"
+        },
+        {
+          "action": "grasp",
+          "target": "mouse_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 5,
+    "image": "coco_val2017_subset_v3/000000201426.jpg",
+    "instruction": "Pick up the cup",
+    "reasoning_type": "simple",
+    "difficulty_level": 1,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            0.0,
+            349.06,
+            638.65,
+            131.03
+          ]
+        },
+        {
+          "id": "cup_1",
+          "category": "cup",
+          "bbox": [
+            49.44,
+            303.89,
+            119.75,
+            154.91
+          ]
+        },
+        {
+          "id": "cup_2",
+          "category": "cup",
+          "bbox": [
+            490.05,
+            276.6,
+            100.11,
+            123.44
+          ]
+        },
+        {
+          "id": "chair_2",
+          "category": "chair",
+          "bbox": [
+            380.05,
+            262.28,
+            55.78,
+            109.6
+          ]
+        },
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            379.89,
+            266.14,
+            44.04,
+            101.3
+          ]
+        }
+      ],
+      "target_object_id": "cup_1",
+      "relation_object_id": "",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "cup_1"
+        },
+        {
+          "action": "grasp",
+          "target": "cup_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 6,
+    "image": "coco_val2017_subset_v3/000000011813.jpg",
+    "instruction": "Pick up the laptop",
+    "reasoning_type": "simple",
+    "difficulty_level": 1,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "laptop_1",
+          "category": "laptop",
+          "bbox": [
+            0.23,
+            386.85,
+            168.48,
+            80.5
+          ]
+        },
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            0.96,
+            332.73,
+            93.62,
+            57.82
+          ]
+        }
+      ],
+      "target_object_id": "laptop_1",
+      "relation_object_id": "",
+      "scene_type": "office",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "laptop_1"
+        },
+        {
+          "action": "grasp",
+          "target": "laptop_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 7,
+    "image": "coco_val2017_subset_v3/000000474167.jpg",
+    "instruction": "Pick up the bottle",
+    "reasoning_type": "simple",
+    "difficulty_level": 1,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_2",
+          "category": "dining table",
+          "bbox": [
+            190.0,
+            171.67,
+            237.0,
+            86.66
+          ]
+        },
+        {
+          "id": "bottle_1",
+          "category": "bottle",
+          "bbox": [
+            110.67,
+            14.31,
+            78.19,
+            229.51
+          ]
+        },
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            3.33,
+            166.67,
+            116.67,
+            121.66
+          ]
+        }
+      ],
+      "target_object_id": "bottle_1",
+      "relation_object_id": "",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "bottle_1"
+        },
+        {
+          "action": "grasp",
+          "target": "bottle_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 8,
+    "image": "coco_val2017_subset_v3/000000037740.jpg",
+    "instruction": "Pick up the chair",
+    "reasoning_type": "simple",
+    "difficulty_level": 1,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            209.55,
+            234.39,
+            176.51,
+            214.71
+          ]
+        },
+        {
+          "id": "laptop_1",
+          "category": "laptop",
+          "bbox": [
+            373.21,
+            186.61,
+            80.9,
+            66.87
+          ]
+        }
+      ],
+      "target_object_id": "chair_1",
+      "relation_object_id": "",
+      "scene_type": "office",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "chair_1"
+        },
+        {
+          "action": "grasp",
+          "target": "chair_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 9,
+    "image": "coco_val2017_subset_v3/000000052996.jpg",
+    "instruction": "Pick up the dining table",
+    "reasoning_type": "simple",
+    "difficulty_level": 1,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            0.0,
+            249.93,
+            217.08,
+            176.07
+          ]
+        },
+        {
+          "id": "backpack_1",
+          "category": "backpack",
+          "bbox": [
+            562.39,
+            193.44,
+            77.61,
+            95.84
+          ]
+        },
+        {
+          "id": "bowl_1",
+          "category": "bowl",
+          "bbox": [
+            108.6,
+            307.05,
+            73.36,
+            43.09
+          ]
+        },
+        {
+          "id": "book_1",
+          "category": "book",
+          "bbox": [
+            448.31,
+            225.77,
+            60.1,
+            46.69
+          ]
+        }
+      ],
+      "target_object_id": "dining_table_1",
+      "relation_object_id": "",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "dining_table_1"
+        },
+        {
+          "action": "grasp",
+          "target": "dining_table_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 10,
+    "image": "coco_val2017_subset_v3/000000184384.jpg",
+    "instruction": "Pick up the dining table",
+    "reasoning_type": "simple",
+    "difficulty_level": 1,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            0.0,
+            181.62,
+            640.0,
+            291.89
+          ]
+        },
+        {
+          "id": "cup_1",
+          "category": "cup",
+          "bbox": [
+            3.26,
+            3.26,
+            130.31,
+            314.93
+          ]
+        },
+        {
+          "id": "cup_2",
+          "category": "cup",
+          "bbox": [
+            96.0,
+            2.23,
+            119.73,
+            204.94
+          ]
+        }
+      ],
+      "target_object_id": "dining_table_1",
+      "relation_object_id": "",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "dining_table_1"
+        },
+        {
+          "action": "grasp",
+          "target": "dining_table_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 11,
+    "image": "coco_val2017_subset_v3/000000383842.jpg",
+    "instruction": "Pick up the remote",
+    "reasoning_type": "simple",
+    "difficulty_level": 1,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "laptop_1",
+          "category": "laptop",
+          "bbox": [
+            1.95,
+            210.36,
+            246.75,
+            192.13
+          ]
+        },
+        {
+          "id": "remote_1",
+          "category": "remote",
+          "bbox": [
+            516.71,
+            325.53,
+            54.77,
+            52.94
+          ]
+        }
+      ],
+      "target_object_id": "remote_1",
+      "relation_object_id": "",
+      "scene_type": "office",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "remote_1"
+        },
+        {
+          "action": "grasp",
+          "target": "remote_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 12,
+    "image": "coco_val2017_subset_v3/000000462904.jpg",
+    "instruction": "Pick up the dining table",
+    "reasoning_type": "simple",
+    "difficulty_level": 1,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            340.14,
+            177.42,
+            299.58,
+            112.58
+          ]
+        },
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            58.93,
+            193.32,
+            88.62,
+            100.4
+          ]
+        },
+        {
+          "id": "chair_2",
+          "category": "chair",
+          "bbox": [
+            523.33,
+            195.53,
+            79.29,
+            98.15
+          ]
+        },
+        {
+          "id": "chair_3",
+          "category": "chair",
+          "bbox": [
+            456.37,
+            192.06,
+            73.72,
+            92.62
+          ]
+        }
+      ],
+      "target_object_id": "dining_table_1",
+      "relation_object_id": "",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "dining_table_1"
+        },
+        {
+          "action": "grasp",
+          "target": "dining_table_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 13,
+    "image": "coco_val2017_subset_v3/000000076547.jpg",
+    "instruction": "Pick up the right chair",
+    "reasoning_type": "multi_instance",
+    "difficulty_level": 2,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "backpack_1",
+          "category": "backpack",
+          "bbox": [
+            139.15,
+            283.69,
+            84.13,
+            131.59
+          ]
+        },
+        {
+          "id": "chair_2",
+          "category": "chair",
+          "bbox": [
+            491.05,
+            345.55,
+            131.42,
+            82.73
+          ]
+        },
+        {
+          "id": "laptop_1",
+          "category": "laptop",
+          "bbox": [
+            385.01,
+            252.34,
+            96.34,
+            55.75
+          ]
+        },
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            308.05,
+            298.98,
+            183.62,
+            26.27
+          ]
+        },
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            496.25,
+            366.88,
+            86.25,
+            36.25
+          ]
+        }
+      ],
+      "target_object_id": "chair_2",
+      "relation_object_id": "",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "chair_2"
+        },
+        {
+          "action": "grasp",
+          "target": "chair_2"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 14,
+    "image": "coco_val2017_subset_v3/000000578922.jpg",
+    "instruction": "Move the largest cup",
+    "reasoning_type": "multi_instance",
+    "difficulty_level": 2,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "cup_1",
+          "category": "cup",
+          "bbox": [
+            317.58,
+            499.42,
+            111.13,
+            140.58
+          ]
+        },
+        {
+          "id": "bottle_1",
+          "category": "bottle",
+          "bbox": [
+            422.08,
+            542.88,
+            103.48,
+            97.12
+          ]
+        },
+        {
+          "id": "cup_2",
+          "category": "cup",
+          "bbox": [
+            376.26,
+            293.26,
+            74.03,
+            97.95
+          ]
+        }
+      ],
+      "target_object_id": "cup_1",
+      "relation_object_id": "",
+      "scene_type": "kitchen",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "cup_1"
+        },
+        {
+          "action": "push",
+          "target": "cup_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 15,
+    "image": "coco_val2017_subset_v3/000000076547.jpg",
+    "instruction": "Pick up the left chair",
+    "reasoning_type": "multi_instance",
+    "difficulty_level": 2,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "backpack_1",
+          "category": "backpack",
+          "bbox": [
+            139.15,
+            283.69,
+            84.13,
+            131.59
+          ]
+        },
+        {
+          "id": "chair_2",
+          "category": "chair",
+          "bbox": [
+            491.05,
+            345.55,
+            131.42,
+            82.73
+          ]
+        },
+        {
+          "id": "laptop_1",
+          "category": "laptop",
+          "bbox": [
+            385.01,
+            252.34,
+            96.34,
+            55.75
+          ]
+        },
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            308.05,
+            298.98,
+            183.62,
+            26.27
+          ]
+        },
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            496.25,
+            366.88,
+            86.25,
+            36.25
+          ]
+        }
+      ],
+      "target_object_id": "chair_1",
+      "relation_object_id": "",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "chair_1"
+        },
+        {
+          "action": "grasp",
+          "target": "chair_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 16,
+    "image": "coco_val2017_subset_v3/000000084241.jpg",
+    "instruction": "Pick up the right bowl",
+    "reasoning_type": "multi_instance",
+    "difficulty_level": 2,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "bowl_1",
+          "category": "bowl",
+          "bbox": [
+            464.91,
+            277.71,
+            164.58,
+            113.15
+          ]
+        },
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            501.55,
+            189.76,
+            138.45,
+            91.84
+          ]
+        },
+        {
+          "id": "bowl_2",
+          "category": "bowl",
+          "bbox": [
+            0.0,
+            205.18,
+            80.03,
+            43.43
+          ]
+        }
+      ],
+      "target_object_id": "bowl_1",
+      "relation_object_id": "",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "bowl_1"
+        },
+        {
+          "action": "grasp",
+          "target": "bowl_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 17,
+    "image": "coco_val2017_subset_v3/000000327769.jpg",
+    "instruction": "Move the smallest cup",
+    "reasoning_type": "multi_instance",
+    "difficulty_level": 2,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "bottle_1",
+          "category": "bottle",
+          "bbox": [
+            114.22,
+            11.42,
+            53.92,
+            127.02
+          ]
+        },
+        {
+          "id": "cup_1",
+          "category": "cup",
+          "bbox": [
+            260.36,
+            2.35,
+            61.76,
+            82.1
+          ]
+        },
+        {
+          "id": "cup_2",
+          "category": "cup",
+          "bbox": [
+            307.18,
+            0.0,
+            54.94,
+            71.42
+          ]
+        }
+      ],
+      "target_object_id": "cup_2",
+      "relation_object_id": "",
+      "scene_type": "kitchen",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "cup_2"
+        },
+        {
+          "action": "push",
+          "target": "cup_2"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 18,
+    "image": "coco_val2017_subset_v3/000000305609.jpg",
+    "instruction": "Pick up the right bowl",
+    "reasoning_type": "multi_instance",
+    "difficulty_level": 2,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            1.18,
+            159.67,
+            610.82,
+            445.09
+          ]
+        },
+        {
+          "id": "bowl_1",
+          "category": "bowl",
+          "bbox": [
+            16.54,
+            353.55,
+            190.22,
+            144.73
+          ]
+        },
+        {
+          "id": "bowl_2",
+          "category": "bowl",
+          "bbox": [
+            337.51,
+            109.22,
+            114.14,
+            61.21
+          ]
+        },
+        {
+          "id": "bottle_1",
+          "category": "bottle",
+          "bbox": [
+            206.88,
+            264.25,
+            57.97,
+            103.33
+          ]
+        }
+      ],
+      "target_object_id": "bowl_2",
+      "relation_object_id": "",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "bowl_2"
+        },
+        {
+          "action": "grasp",
+          "target": "bowl_2"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 19,
+    "image": "coco_val2017_subset_v3/000000436617.jpg",
+    "instruction": "Move the largest dining table",
+    "reasoning_type": "multi_instance",
+    "difficulty_level": 2,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            214.0,
+            183.0,
+            330.0,
+            221.0
+          ]
+        },
+        {
+          "id": "chair_2",
+          "category": "chair",
+          "bbox": [
+            49.96,
+            181.58,
+            67.42,
+            102.32
+          ]
+        },
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            2.08,
+            197.05,
+            59.61,
+            113.86
+          ]
+        },
+        {
+          "id": "dining_table_2",
+          "category": "dining table",
+          "bbox": [
+            0.31,
+            177.59,
+            126.85,
+            46.12
+          ]
+        },
+        {
+          "id": "chair_3",
+          "category": "chair",
+          "bbox": [
+            1.1,
+            336.35,
+            62.13,
+            86.23
+          ]
+        }
+      ],
+      "target_object_id": "dining_table_1",
+      "relation_object_id": "",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "dining_table_1"
+        },
+        {
+          "action": "push",
+          "target": "dining_table_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 20,
+    "image": "coco_val2017_subset_v3/000000440475.jpg",
+    "instruction": "Pick up the right chair",
+    "reasoning_type": "multi_instance",
+    "difficulty_level": 2,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            211.81,
+            274.9,
+            293.2,
+            134.27
+          ]
+        },
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            293.22,
+            306.6,
+            113.62,
+            79.72
+          ]
+        },
+        {
+          "id": "chair_3",
+          "category": "chair",
+          "bbox": [
+            70.61,
+            341.31,
+            95.16,
+            85.69
+          ]
+        },
+        {
+          "id": "chair_2",
+          "category": "chair",
+          "bbox": [
+            520.37,
+            257.46,
+            67.66,
+            93.56
+          ]
+        },
+        {
+          "id": "chair_4",
+          "category": "chair",
+          "bbox": [
+            444.5,
+            299.5,
+            98.21,
+            61.7
+          ]
+        }
+      ],
+      "target_object_id": "chair_2",
+      "relation_object_id": "",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "chair_2"
+        },
+        {
+          "action": "grasp",
+          "target": "chair_2"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 21,
+    "image": "coco_val2017_subset_v3/000000209530.jpg",
+    "instruction": "Pick up the left cup",
+    "reasoning_type": "multi_instance",
+    "difficulty_level": 2,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "bottle_1",
+          "category": "bottle",
+          "bbox": [
+            379.72,
+            302.97,
+            66.85,
+            124.41
+          ]
+        },
+        {
+          "id": "cup_1",
+          "category": "cup",
+          "bbox": [
+            372.51,
+            342.97,
+            73.7,
+            85.03
+          ]
+        },
+        {
+          "id": "cup_2",
+          "category": "cup",
+          "bbox": [
+            292.37,
+            359.08,
+            77.82,
+            61.14
+          ]
+        }
+      ],
+      "target_object_id": "cup_2",
+      "relation_object_id": "",
+      "scene_type": "kitchen",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "cup_2"
+        },
+        {
+          "action": "grasp",
+          "target": "cup_2"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 22,
+    "image": "coco_val2017_subset_v3/000000037777.jpg",
+    "instruction": "Pick up the right chair",
+    "reasoning_type": "multi_instance",
+    "difficulty_level": 2,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            79.55,
+            178.05,
+            208.36,
+            48.7
+          ]
+        },
+        {
+          "id": "chair_3",
+          "category": "chair",
+          "bbox": [
+            241.95,
+            180.42,
+            51.37,
+            45.4
+          ]
+        },
+        {
+          "id": "chair_2",
+          "category": "chair",
+          "bbox": [
+            116.5,
+            189.57,
+            50.0,
+            25.5
+          ]
+        },
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            26.5,
+            215.25,
+            61.5,
+            14.5
+          ]
+        }
+      ],
+      "target_object_id": "chair_3",
+      "relation_object_id": "",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "chair_3"
+        },
+        {
+          "action": "grasp",
+          "target": "chair_3"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 23,
+    "image": "coco_val2017_subset_v3/000000074733.jpg",
+    "instruction": "Move the largest cup",
+    "reasoning_type": "multi_instance",
+    "difficulty_level": 2,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            1.38,
+            122.4,
+            609.24,
+            482.72
+          ]
+        },
+        {
+          "id": "cup_7",
+          "category": "cup",
+          "bbox": [
+            394.71,
+            323.19,
+            147.15,
+            243.43
+          ]
+        },
+        {
+          "id": "cup_5",
+          "category": "cup",
+          "bbox": [
+            281.3,
+            395.12,
+            164.66,
+            204.46
+          ]
+        },
+        {
+          "id": "cup_8",
+          "category": "cup",
+          "bbox": [
+            484.17,
+            273.06,
+            127.83,
+            211.73
+          ]
+        },
+        {
+          "id": "dining_table_2",
+          "category": "dining table",
+          "bbox": [
+            241.37,
+            4.57,
+            212.98,
+            77.85
+          ]
+        },
+        {
+          "id": "cup_3",
+          "category": "cup",
+          "bbox": [
+            48.07,
+            70.85,
+            78.3,
+            131.2
+          ]
+        },
+        {
+          "id": "cup_1",
+          "category": "cup",
+          "bbox": [
+            536.24,
+            123.24,
+            75.76,
+            135.02
+          ]
+        },
+        {
+          "id": "chair_2",
+          "category": "chair",
+          "bbox": [
+            464.06,
+            0.0,
+            76.99,
+            128.07
+          ]
+        },
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            348.57,
+            66.55,
+            129.72,
+            75.84
+          ]
+        },
+        {
+          "id": "cup_9",
+          "category": "cup",
+          "bbox": [
+            564.17,
+            234.26,
+            47.83,
+            191.78
+          ]
+        },
+        {
+          "id": "cup_2",
+          "category": "cup",
+          "bbox": [
+            116.24,
+            53.13,
+            72.35,
+            125.56
+          ]
+        },
+        {
+          "id": "cup_4",
+          "category": "cup",
+          "bbox": [
+            0.0,
+            86.17,
+            57.46,
+            149.52
+          ]
+        },
+        {
+          "id": "cup_6",
+          "category": "cup",
+          "bbox": [
+            180.61,
+            39.11,
+            64.41,
+            117.75
+          ]
+        }
+      ],
+      "target_object_id": "cup_7",
+      "relation_object_id": "",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "cup_7"
+        },
+        {
+          "action": "push",
+          "target": "cup_7"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 24,
+    "image": "coco_val2017_subset_v3/000000470924.jpg",
+    "instruction": "Move the largest dining table",
+    "reasoning_type": "multi_instance",
+    "difficulty_level": 2,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            110.02,
+            153.17,
+            400.18,
+            320.36
+          ]
+        },
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            0.16,
+            229.88,
+            121.99,
+            248.97
+          ]
+        },
+        {
+          "id": "chair_2",
+          "category": "chair",
+          "bbox": [
+            578.91,
+            270.51,
+            61.09,
+            209.49
+          ]
+        },
+        {
+          "id": "dining_table_2",
+          "category": "dining table",
+          "bbox": [
+            1.9,
+            111.36,
+            116.26,
+            109.47
+          ]
+        },
+        {
+          "id": "cup_1",
+          "category": "cup",
+          "bbox": [
+            333.87,
+            302.64,
+            88.44,
+            128.36
+          ]
+        },
+        {
+          "id": "chair_3",
+          "category": "chair",
+          "bbox": [
+            151.51,
+            47.07,
+            61.09,
+            86.27
+          ]
+        },
+        {
+          "id": "chair_4",
+          "category": "chair",
+          "bbox": [
+            232.35,
+            38.59,
+            46.45,
+            89.02
+          ]
+        }
+      ],
+      "target_object_id": "dining_table_1",
+      "relation_object_id": "",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "dining_table_1"
+        },
+        {
+          "action": "push",
+          "target": "dining_table_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 25,
+    "image": "coco_val2017_subset_v3/000000298396.jpg",
+    "instruction": "Pick up the left chair",
+    "reasoning_type": "multi_instance",
+    "difficulty_level": 2,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            238.92,
+            323.78,
+            369.73,
+            149.19
+          ]
+        },
+        {
+          "id": "chair_3",
+          "category": "chair",
+          "bbox": [
+            371.19,
+            213.98,
+            87.88,
+            137.15
+          ]
+        },
+        {
+          "id": "bowl_1",
+          "category": "bowl",
+          "bbox": [
+            352.36,
+            388.33,
+            119.43,
+            76.09
+          ]
+        },
+        {
+          "id": "chair_4",
+          "category": "chair",
+          "bbox": [
+            446.68,
+            311.56,
+            134.76,
+            28.77
+          ]
+        },
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            310.31,
+            323.16,
+            53.23,
+            69.31
+          ]
+        },
+        {
+          "id": "chair_2",
+          "category": "chair",
+          "bbox": [
+            607.5,
+            362.72,
+            32.5,
+            109.42
+          ]
+        }
+      ],
+      "target_object_id": "chair_1",
+      "relation_object_id": "",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "chair_1"
+        },
+        {
+          "action": "grasp",
+          "target": "chair_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 26,
+    "image": "coco_val2017_subset_v3/000000156643.jpg",
+    "instruction": "Pick up the right dining table",
+    "reasoning_type": "multi_instance",
+    "difficulty_level": 2,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "bottle_1",
+          "category": "bottle",
+          "bbox": [
+            9.29,
+            7.23,
+            193.03,
+            467.61
+          ]
+        },
+        {
+          "id": "dining_table_2",
+          "category": "dining table",
+          "bbox": [
+            1.08,
+            334.38,
+            638.92,
+            140.23
+          ]
+        },
+        {
+          "id": "dining_table_3",
+          "category": "dining table",
+          "bbox": [
+            185.68,
+            325.77,
+            295.43,
+            152.27
+          ]
+        },
+        {
+          "id": "cup_1",
+          "category": "cup",
+          "bbox": [
+            484.99,
+            311.47,
+            74.01,
+            110.3
+          ]
+        },
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            583.07,
+            293.33,
+            56.93,
+            106.65
+          ]
+        },
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            452.76,
+            242.53,
+            78.77,
+            68.68
+          ]
+        }
+      ],
+      "target_object_id": "dining_table_1",
+      "relation_object_id": "",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "dining_table_1"
+        },
+        {
+          "action": "grasp",
+          "target": "dining_table_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 27,
+    "image": "coco_val2017_subset_v3/000000572678.jpg",
+    "instruction": "Pick up the left chair",
+    "reasoning_type": "multi_instance",
+    "difficulty_level": 2,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            202.05,
+            244.94,
+            358.31,
+            175.18
+          ]
+        },
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            522.8,
+            274.19,
+            86.82,
+            143.5
+          ]
+        },
+        {
+          "id": "chair_5",
+          "category": "chair",
+          "bbox": [
+            162.06,
+            229.58,
+            122.45,
+            98.31
+          ]
+        },
+        {
+          "id": "chair_4",
+          "category": "chair",
+          "bbox": [
+            182.42,
+            344.78,
+            145.16,
+            75.44
+          ]
+        },
+        {
+          "id": "chair_2",
+          "category": "chair",
+          "bbox": [
+            265.97,
+            222.1,
+            61.23,
+            85.91
+          ]
+        },
+        {
+          "id": "chair_3",
+          "category": "chair",
+          "bbox": [
+            340.36,
+            196.13,
+            82.14,
+            48.4
+          ]
+        }
+      ],
+      "target_object_id": "chair_5",
+      "relation_object_id": "",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "chair_5"
+        },
+        {
+          "action": "grasp",
+          "target": "chair_5"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 28,
+    "image": "coco_val2017_subset_v3/000000018380.jpg",
+    "instruction": "Move the largest bowl",
+    "reasoning_type": "multi_instance",
+    "difficulty_level": 2,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            123.89,
+            121.99,
+            412.66,
+            304.01
+          ]
+        },
+        {
+          "id": "bowl_1",
+          "category": "bowl",
+          "bbox": [
+            318.76,
+            347.27,
+            97.32,
+            78.73
+          ]
+        },
+        {
+          "id": "bowl_2",
+          "category": "bowl",
+          "bbox": [
+            257.89,
+            242.71,
+            76.41,
+            53.48
+          ]
+        }
+      ],
+      "target_object_id": "bowl_1",
+      "relation_object_id": "",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "bowl_1"
+        },
+        {
+          "action": "push",
+          "target": "bowl_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 29,
+    "image": "coco_val2017_subset_v3/000000216497.jpg",
+    "instruction": "Move the smallest chair",
+    "reasoning_type": "multi_instance",
+    "difficulty_level": 2,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            325.82,
+            238.56,
+            269.3,
+            213.79
+          ]
+        },
+        {
+          "id": "chair_2",
+          "category": "chair",
+          "bbox": [
+            386.03,
+            269.83,
+            82.04,
+            181.58
+          ]
+        },
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            333.79,
+            253.44,
+            68.44,
+            133.73
+          ]
+        },
+        {
+          "id": "chair_3",
+          "category": "chair",
+          "bbox": [
+            292.67,
+            243.86,
+            51.6,
+            135.56
+          ]
+        }
+      ],
+      "target_object_id": "chair_3",
+      "relation_object_id": "",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "chair_3"
+        },
+        {
+          "action": "push",
+          "target": "chair_3"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 30,
+    "image": "coco_val2017_subset_v3/000000369310.jpg",
+    "instruction": "Pick up the right chair",
+    "reasoning_type": "multi_instance",
+    "difficulty_level": 2,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            212.91,
+            102.57,
+            162.42,
+            111.06
+          ]
+        },
+        {
+          "id": "chair_2",
+          "category": "chair",
+          "bbox": [
+            345.01,
+            59.46,
+            39.09,
+            151.05
+          ]
+        },
+        {
+          "id": "remote_1",
+          "category": "remote",
+          "bbox": [
+            189.5,
+            263.29,
+            63.61,
+            92.24
+          ]
+        },
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            276.62,
+            86.03,
+            78.45,
+            69.97
+          ]
+        }
+      ],
+      "target_object_id": "chair_2",
+      "relation_object_id": "",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "chair_2"
+        },
+        {
+          "action": "grasp",
+          "target": "chair_2"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 31,
+    "image": "coco_val2017_subset_v3/000000419312.jpg",
+    "instruction": "Pick up the cup next to the cup",
+    "reasoning_type": "spatial_relation",
+    "difficulty_level": 3,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            0.0,
+            5.19,
+            375.0,
+            488.32
+          ]
+        },
+        {
+          "id": "cup_1",
+          "category": "cup",
+          "bbox": [
+            0.0,
+            69.56,
+            92.84,
+            165.55
+          ]
+        },
+        {
+          "id": "cup_2",
+          "category": "cup",
+          "bbox": [
+            18.61,
+            10.29,
+            96.63,
+            137.08
+          ]
+        },
+        {
+          "id": "bowl_1",
+          "category": "bowl",
+          "bbox": [
+            315.48,
+            0.28,
+            59.41,
+            87.31
+          ]
+        },
+        {
+          "id": "bowl_2",
+          "category": "bowl",
+          "bbox": [
+            189.94,
+            0.0,
+            100.66,
+            24.04
+          ]
+        },
+        {
+          "id": "cup_3",
+          "category": "cup",
+          "bbox": [
+            0.0,
+            0.0,
+            24.0,
+            78.5
+          ]
+        }
+      ],
+      "target_object_id": "cup_1",
+      "relation_object_id": "cup_2",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "cup_1"
+        },
+        {
+          "action": "grasp",
+          "target": "cup_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 32,
+    "image": "coco_val2017_subset_v3/000000516871.jpg",
+    "instruction": "Move the bowl left of the bowl",
+    "reasoning_type": "spatial_relation",
+    "difficulty_level": 3,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            4.72,
+            0.71,
+            635.28,
+            411.39
+          ]
+        },
+        {
+          "id": "bowl_2",
+          "category": "bowl",
+          "bbox": [
+            62.97,
+            128.11,
+            514.63,
+            245.38
+          ]
+        },
+        {
+          "id": "bowl_1",
+          "category": "bowl",
+          "bbox": [
+            132.25,
+            24.02,
+            133.98,
+            99.4
+          ]
+        }
+      ],
+      "target_object_id": "bowl_1",
+      "relation_object_id": "bowl_2",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "bowl_1"
+        },
+        {
+          "action": "push",
+          "target": "bowl_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 33,
+    "image": "coco_val2017_subset_v3/000000064084.jpg",
+    "instruction": "Move the dining table right of the bottle",
+    "reasoning_type": "spatial_relation",
+    "difficulty_level": 3,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_2",
+          "category": "dining table",
+          "bbox": [
+            0.0,
+            1.42,
+            640.0,
+            429.2
+          ]
+        },
+        {
+          "id": "bottle_3",
+          "category": "bottle",
+          "bbox": [
+            25.77,
+            58.12,
+            132.09,
+            345.79
+          ]
+        },
+        {
+          "id": "bowl_1",
+          "category": "bowl",
+          "bbox": [
+            127.97,
+            115.51,
+            215.17,
+            211.77
+          ]
+        },
+        {
+          "id": "bottle_2",
+          "category": "bottle",
+          "bbox": [
+            0.0,
+            137.33,
+            106.43,
+            298.67
+          ]
+        },
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            97.98,
+            333.12,
+            182.24,
+            97.98
+          ]
+        },
+        {
+          "id": "bottle_1",
+          "category": "bottle",
+          "bbox": [
+            0.0,
+            215.76,
+            55.08,
+            215.66
+          ]
+        }
+      ],
+      "target_object_id": "dining_table_1",
+      "relation_object_id": "bottle_3",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "dining_table_1"
+        },
+        {
+          "action": "push",
+          "target": "dining_table_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 34,
+    "image": "coco_val2017_subset_v3/000000438774.jpg",
+    "instruction": "Pick up the dining table next to the chair",
+    "reasoning_type": "spatial_relation",
+    "difficulty_level": 3,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            374.63,
+            251.8,
+            265.37,
+            168.83
+          ]
+        },
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            531.5,
+            206.6,
+            88.04,
+            49.92
+          ]
+        }
+      ],
+      "target_object_id": "dining_table_1",
+      "relation_object_id": "chair_1",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "dining_table_1"
+        },
+        {
+          "action": "grasp",
+          "target": "dining_table_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 35,
+    "image": "coco_val2017_subset_v3/000000578545.jpg",
+    "instruction": "Pick up the chair next to the book",
+    "reasoning_type": "spatial_relation",
+    "difficulty_level": 3,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            390.73,
+            130.78,
+            145.19,
+            144.12
+          ]
+        },
+        {
+          "id": "book_1",
+          "category": "book",
+          "bbox": [
+            358.49,
+            227.31,
+            152.38,
+            136.44
+          ]
+        }
+      ],
+      "target_object_id": "chair_1",
+      "relation_object_id": "book_1",
+      "scene_type": "office",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "chair_1"
+        },
+        {
+          "action": "grasp",
+          "target": "chair_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 36,
+    "image": "coco_val2017_subset_v3/000000479126.jpg",
+    "instruction": "Move the chair right of the chair",
+    "reasoning_type": "spatial_relation",
+    "difficulty_level": 3,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            53.95,
+            201.84,
+            147.69,
+            214.11
+          ]
+        },
+        {
+          "id": "laptop_1",
+          "category": "laptop",
+          "bbox": [
+            261.74,
+            302.91,
+            161.44,
+            118.45
+          ]
+        },
+        {
+          "id": "chair_3",
+          "category": "chair",
+          "bbox": [
+            519.32,
+            266.88,
+            120.68,
+            154.83
+          ]
+        },
+        {
+          "id": "chair_2",
+          "category": "chair",
+          "bbox": [
+            333.47,
+            223.18,
+            98.38,
+            147.91
+          ]
+        },
+        {
+          "id": "chair_4",
+          "category": "chair",
+          "bbox": [
+            494.41,
+            220.72,
+            90.34,
+            88.29
+          ]
+        }
+      ],
+      "target_object_id": "chair_4",
+      "relation_object_id": "chair_2",
+      "scene_type": "office",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "chair_4"
+        },
+        {
+          "action": "push",
+          "target": "chair_4"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 37,
+    "image": "coco_val2017_subset_v3/000000157418.jpg",
+    "instruction": "Pick up the bottle above the cup",
+    "reasoning_type": "spatial_relation",
+    "difficulty_level": 3,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            0.0,
+            262.34,
+            478.56,
+            369.01
+          ]
+        },
+        {
+          "id": "bowl_3",
+          "category": "bowl",
+          "bbox": [
+            220.52,
+            313.56,
+            259.48,
+            318.34
+          ]
+        },
+        {
+          "id": "bottle_1",
+          "category": "bottle",
+          "bbox": [
+            35.86,
+            26.11,
+            139.31,
+            280.0
+          ]
+        },
+        {
+          "id": "bowl_2",
+          "category": "bowl",
+          "bbox": [
+            158.0,
+            239.41,
+            281.67,
+            111.36
+          ]
+        },
+        {
+          "id": "bowl_1",
+          "category": "bowl",
+          "bbox": [
+            0.83,
+            200.06,
+            99.64,
+            121.28
+          ]
+        },
+        {
+          "id": "cup_1",
+          "category": "cup",
+          "bbox": [
+            151.29,
+            177.71,
+            68.25,
+            80.51
+          ]
+        }
+      ],
+      "target_object_id": "bottle_1",
+      "relation_object_id": "cup_1",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "bottle_1"
+        },
+        {
+          "action": "grasp",
+          "target": "bottle_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 38,
+    "image": "coco_val2017_subset_v3/000000150417.jpg",
+    "instruction": "Move the dining table right of the chair",
+    "reasoning_type": "spatial_relation",
+    "difficulty_level": 3,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            182.03,
+            167.67,
+            409.57,
+            305.56
+          ]
+        },
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            105.68,
+            147.98,
+            179.47,
+            178.55
+          ]
+        },
+        {
+          "id": "cup_1",
+          "category": "cup",
+          "bbox": [
+            358.4,
+            242.85,
+            109.89,
+            93.15
+          ]
+        }
+      ],
+      "target_object_id": "dining_table_1",
+      "relation_object_id": "chair_1",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "dining_table_1"
+        },
+        {
+          "action": "push",
+          "target": "dining_table_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 39,
+    "image": "coco_val2017_subset_v3/000000099810.jpg",
+    "instruction": "Pick up the chair next to the dining table",
+    "reasoning_type": "spatial_relation",
+    "difficulty_level": 3,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            26.17,
+            75.15,
+            327.51,
+            242.27
+          ]
+        },
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            209.17,
+            235.19,
+            290.83,
+            93.05
+          ]
+        }
+      ],
+      "target_object_id": "chair_1",
+      "relation_object_id": "dining_table_1",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "chair_1"
+        },
+        {
+          "action": "grasp",
+          "target": "chair_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 40,
+    "image": "coco_val2017_subset_v3/000000450303.jpg",
+    "instruction": "Pick up the chair above the chair",
+    "reasoning_type": "spatial_relation",
+    "difficulty_level": 3,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            127.62,
+            252.99,
+            408.85,
+            128.75
+          ]
+        },
+        {
+          "id": "chair_2",
+          "category": "chair",
+          "bbox": [
+            35.55,
+            293.03,
+            94.67,
+            136.14
+          ]
+        },
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            0.0,
+            411.38,
+            154.63,
+            62.28
+          ]
+        },
+        {
+          "id": "chair_3",
+          "category": "chair",
+          "bbox": [
+            583.55,
+            278.73,
+            56.34,
+            56.35
+          ]
+        },
+        {
+          "id": "laptop_1",
+          "category": "laptop",
+          "bbox": [
+            403.92,
+            259.72,
+            52.91,
+            58.84
+          ]
+        }
+      ],
+      "target_object_id": "chair_2",
+      "relation_object_id": "chair_1",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "chair_2"
+        },
+        {
+          "action": "grasp",
+          "target": "chair_2"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 41,
+    "image": "coco_val2017_subset_v3/000000228144.jpg",
+    "instruction": "Move the chair left of the chair",
+    "reasoning_type": "spatial_relation",
+    "difficulty_level": 3,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "chair_2",
+          "category": "chair",
+          "bbox": [
+            191.56,
+            2.08,
+            372.63,
+            423.92
+          ]
+        },
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            1.99,
+            74.98,
+            213.55,
+            335.78
+          ]
+        },
+        {
+          "id": "chair_3",
+          "category": "chair",
+          "bbox": [
+            545.66,
+            112.8,
+            93.82,
+            225.93
+          ]
+        },
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            0.0,
+            293.04,
+            58.1,
+            132.96
+          ]
+        }
+      ],
+      "target_object_id": "chair_1",
+      "relation_object_id": "chair_2",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "chair_1"
+        },
+        {
+          "action": "push",
+          "target": "chair_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 42,
+    "image": "coco_val2017_subset_v3/000000575970.jpg",
+    "instruction": "Pick up the dining table above the chair",
+    "reasoning_type": "spatial_relation",
+    "difficulty_level": 3,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            237.25,
+            257.38,
+            401.64,
+            182.82
+          ]
+        },
+        {
+          "id": "chair_2",
+          "category": "chair",
+          "bbox": [
+            428.39,
+            316.39,
+            119.74,
+            149.67
+          ]
+        },
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            278.11,
+            314.78,
+            106.1,
+            159.66
+          ]
+        },
+        {
+          "id": "chair_3",
+          "category": "chair",
+          "bbox": [
+            544.97,
+            309.7,
+            95.03,
+            158.61
+          ]
+        }
+      ],
+      "target_object_id": "dining_table_1",
+      "relation_object_id": "chair_3",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "dining_table_1"
+        },
+        {
+          "action": "grasp",
+          "target": "dining_table_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 43,
+    "image": "coco_val2017_subset_v3/000000491497.jpg",
+    "instruction": "Pick up the chair next to the book",
+    "reasoning_type": "spatial_relation",
+    "difficulty_level": 3,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            167.38,
+            293.56,
+            186.7,
+            198.5
+          ]
+        },
+        {
+          "id": "book_1",
+          "category": "book",
+          "bbox": [
+            296.35,
+            217.67,
+            78.65,
+            50.01
+          ]
+        }
+      ],
+      "target_object_id": "chair_1",
+      "relation_object_id": "book_1",
+      "scene_type": "office",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "chair_1"
+        },
+        {
+          "action": "grasp",
+          "target": "chair_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 44,
+    "image": "coco_val2017_subset_v3/000000054628.jpg",
+    "instruction": "Pick up the chair next to the dining table",
+    "reasoning_type": "spatial_relation",
+    "difficulty_level": 3,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            2.24,
+            326.91,
+            372.76,
+            173.09
+          ]
+        },
+        {
+          "id": "dining_table_2",
+          "category": "dining table",
+          "bbox": [
+            243.84,
+            184.81,
+            121.6,
+            117.66
+          ]
+        },
+        {
+          "id": "dining_table_3",
+          "category": "dining table",
+          "bbox": [
+            83.49,
+            174.11,
+            92.01,
+            140.04
+          ]
+        },
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            253.28,
+            197.28,
+            82.23,
+            131.1
+          ]
+        },
+        {
+          "id": "chair_3",
+          "category": "chair",
+          "bbox": [
+            73.22,
+            212.25,
+            47.08,
+            104.9
+          ]
+        },
+        {
+          "id": "chair_2",
+          "category": "chair",
+          "bbox": [
+            67.25,
+            181.46,
+            47.27,
+            70.22
+          ]
+        }
+      ],
+      "target_object_id": "chair_1",
+      "relation_object_id": "dining_table_2",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "chair_1"
+        },
+        {
+          "action": "grasp",
+          "target": "chair_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 45,
+    "image": "coco_val2017_subset_v3/000000329319.jpg",
+    "instruction": "Pick up the dining table above the chair",
+    "reasoning_type": "spatial_relation",
+    "difficulty_level": 3,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            157.46,
+            237.09,
+            270.54,
+            402.91
+          ]
+        },
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            0.0,
+            106.43,
+            132.31,
+            217.17
+          ]
+        }
+      ],
+      "target_object_id": "dining_table_1",
+      "relation_object_id": "chair_1",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "dining_table_1"
+        },
+        {
+          "action": "grasp",
+          "target": "dining_table_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 46,
+    "image": "coco_val2017_subset_v3/000000170670.jpg",
+    "instruction": "Pick up the cup and place it next to the cup",
+    "reasoning_type": "multi_step",
+    "difficulty_level": 4,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            0.0,
+            57.68,
+            640.0,
+            363.31
+          ]
+        },
+        {
+          "id": "bowl_2",
+          "category": "bowl",
+          "bbox": [
+            375.46,
+            196.4,
+            209.77,
+            161.94
+          ]
+        },
+        {
+          "id": "chair_2",
+          "category": "chair",
+          "bbox": [
+            52.01,
+            1.11,
+            167.08,
+            119.5
+          ]
+        },
+        {
+          "id": "bowl_4",
+          "category": "bowl",
+          "bbox": [
+            288.46,
+            147.19,
+            126.08,
+            104.11
+          ]
+        },
+        {
+          "id": "cup_1",
+          "category": "cup",
+          "bbox": [
+            75.94,
+            207.06,
+            85.62,
+            145.33
+          ]
+        },
+        {
+          "id": "cup_2",
+          "category": "cup",
+          "bbox": [
+            395.37,
+            230.71,
+            82.32,
+            149.34
+          ]
+        },
+        {
+          "id": "bowl_3",
+          "category": "bowl",
+          "bbox": [
+            64.81,
+            196.41,
+            135.32,
+            86.73
+          ]
+        },
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            518.93,
+            39.33,
+            121.07,
+            81.89
+          ]
+        },
+        {
+          "id": "bowl_1",
+          "category": "bowl",
+          "bbox": [
+            181.3,
+            163.84,
+            113.58,
+            77.47
+          ]
+        },
+        {
+          "id": "cup_3",
+          "category": "cup",
+          "bbox": [
+            463.54,
+            78.43,
+            63.12,
+            117.71
+          ]
+        },
+        {
+          "id": "bottle_4",
+          "category": "bottle",
+          "bbox": [
+            30.13,
+            238.95,
+            70.8,
+            102.11
+          ]
+        },
+        {
+          "id": "cup_4",
+          "category": "cup",
+          "bbox": [
+            290.59,
+            65.81,
+            49.59,
+            98.34
+          ]
+        },
+        {
+          "id": "bottle_1",
+          "category": "bottle",
+          "bbox": [
+            424.71,
+            72.59,
+            39.23,
+            112.37
+          ]
+        },
+        {
+          "id": "bottle_2",
+          "category": "bottle",
+          "bbox": [
+            383.71,
+            64.67,
+            35.62,
+            105.82
+          ]
+        },
+        {
+          "id": "bottle_3",
+          "category": "bottle",
+          "bbox": [
+            337.71,
+            57.54,
+            36.62,
+            94.72
+          ]
+        }
+      ],
+      "target_object_id": "cup_1",
+      "relation_object_id": "cup_2",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "cup_1"
+        },
+        {
+          "action": "grasp",
+          "target": "cup_1"
+        },
+        {
+          "action": "move_to",
+          "target": "cup_2"
+        },
+        {
+          "action": "release",
+          "target": "cup_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 47,
+    "image": "coco_val2017_subset_v3/000000120853.jpg",
+    "instruction": "Pick up the cup and place it next to the bowl",
+    "reasoning_type": "multi_step",
+    "difficulty_level": 4,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            0.96,
+            52.9,
+            639.04,
+            239.49
+          ]
+        },
+        {
+          "id": "bowl_1",
+          "category": "bowl",
+          "bbox": [
+            331.82,
+            126.96,
+            306.81,
+            182.74
+          ]
+        },
+        {
+          "id": "cup_1",
+          "category": "cup",
+          "bbox": [
+            209.2,
+            0.0,
+            117.08,
+            147.4
+          ]
+        }
+      ],
+      "target_object_id": "cup_1",
+      "relation_object_id": "bowl_1",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "cup_1"
+        },
+        {
+          "action": "grasp",
+          "target": "cup_1"
+        },
+        {
+          "action": "move_to",
+          "target": "bowl_1"
+        },
+        {
+          "action": "release",
+          "target": "cup_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 48,
+    "image": "coco_val2017_subset_v3/000000325838.jpg",
+    "instruction": "Pick up the laptop and place it next to the laptop",
+    "reasoning_type": "multi_step",
+    "difficulty_level": 4,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            159.37,
+            133.0,
+            203.1,
+            188.26
+          ]
+        },
+        {
+          "id": "laptop_2",
+          "category": "laptop",
+          "bbox": [
+            66.88,
+            241.29,
+            168.27,
+            182.29
+          ]
+        },
+        {
+          "id": "laptop_1",
+          "category": "laptop",
+          "bbox": [
+            373.21,
+            197.39,
+            193.08,
+            136.99
+          ]
+        },
+        {
+          "id": "chair_3",
+          "category": "chair",
+          "bbox": [
+            505.06,
+            6.56,
+            134.94,
+            177.57
+          ]
+        },
+        {
+          "id": "chair_4",
+          "category": "chair",
+          "bbox": [
+            445.0,
+            92.24,
+            158.74,
+            147.73
+          ]
+        },
+        {
+          "id": "chair_2",
+          "category": "chair",
+          "bbox": [
+            18.34,
+            5.39,
+            129.44,
+            157.49
+          ]
+        },
+        {
+          "id": "laptop_5",
+          "category": "laptop",
+          "bbox": [
+            398.1,
+            303.32,
+            131.37,
+            65.94
+          ]
+        },
+        {
+          "id": "laptop_6",
+          "category": "laptop",
+          "bbox": [
+            396.42,
+            314.98,
+            129.48,
+            65.89
+          ]
+        },
+        {
+          "id": "laptop_7",
+          "category": "laptop",
+          "bbox": [
+            396.15,
+            327.55,
+            126.81,
+            62.64
+          ]
+        },
+        {
+          "id": "laptop_3",
+          "category": "laptop",
+          "bbox": [
+            403.37,
+            293.76,
+            130.33,
+            52.96
+          ]
+        },
+        {
+          "id": "laptop_4",
+          "category": "laptop",
+          "bbox": [
+            404.33,
+            304.78,
+            128.77,
+            52.44
+          ]
+        },
+        {
+          "id": "chair_5",
+          "category": "chair",
+          "bbox": [
+            2.15,
+            194.8,
+            25.83,
+            199.1
+          ]
+        }
+      ],
+      "target_object_id": "laptop_5",
+      "relation_object_id": "laptop_7",
+      "scene_type": "office",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "laptop_5"
+        },
+        {
+          "action": "grasp",
+          "target": "laptop_5"
+        },
+        {
+          "action": "move_to",
+          "target": "laptop_7"
+        },
+        {
+          "action": "release",
+          "target": "laptop_5"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 49,
+    "image": "coco_val2017_subset_v3/000000488075.jpg",
+    "instruction": "Pick up the chair and place it next to the chair",
+    "reasoning_type": "multi_step",
+    "difficulty_level": 4,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            414.5,
+            251.38,
+            185.77,
+            198.66
+          ]
+        },
+        {
+          "id": "chair_2",
+          "category": "chair",
+          "bbox": [
+            101.57,
+            395.83,
+            109.32,
+            84.17
+          ]
+        },
+        {
+          "id": "chair_3",
+          "category": "chair",
+          "bbox": [
+            577.53,
+            325.19,
+            62.47,
+            119.25
+          ]
+        },
+        {
+          "id": "bowl_1",
+          "category": "bowl",
+          "bbox": [
+            501.72,
+            426.44,
+            116.33,
+            53.34
+          ]
+        }
+      ],
+      "target_object_id": "chair_2",
+      "relation_object_id": "chair_1",
+      "scene_type": "kitchen",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "chair_2"
+        },
+        {
+          "action": "grasp",
+          "target": "chair_2"
+        },
+        {
+          "action": "move_to",
+          "target": "chair_1"
+        },
+        {
+          "action": "release",
+          "target": "chair_2"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 50,
+    "image": "coco_val2017_subset_v3/000000470773.jpg",
+    "instruction": "Pick up the bowl and place it next to the bowl",
+    "reasoning_type": "multi_step",
+    "difficulty_level": 4,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "cup_1",
+          "category": "cup",
+          "bbox": [
+            89.77,
+            160.83,
+            72.31,
+            92.26
+          ]
+        },
+        {
+          "id": "bowl_3",
+          "category": "bowl",
+          "bbox": [
+            102.51,
+            353.31,
+            77.73,
+            62.07
+          ]
+        },
+        {
+          "id": "bowl_2",
+          "category": "bowl",
+          "bbox": [
+            223.43,
+            344.85,
+            65.47,
+            72.99
+          ]
+        },
+        {
+          "id": "bowl_4",
+          "category": "bowl",
+          "bbox": [
+            277.87,
+            354.46,
+            61.93,
+            67.87
+          ]
+        },
+        {
+          "id": "bowl_1",
+          "category": "bowl",
+          "bbox": [
+            334.16,
+            354.44,
+            57.9,
+            68.78
+          ]
+        }
+      ],
+      "target_object_id": "bowl_4",
+      "relation_object_id": "bowl_3",
+      "scene_type": "kitchen",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "bowl_4"
+        },
+        {
+          "action": "grasp",
+          "target": "bowl_4"
+        },
+        {
+          "action": "move_to",
+          "target": "bowl_3"
+        },
+        {
+          "action": "release",
+          "target": "bowl_4"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 51,
+    "image": "coco_val2017_subset_v3/000000222299.jpg",
+    "instruction": "Pick up the book and place it next to the bottle",
+    "reasoning_type": "multi_step",
+    "difficulty_level": 4,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "book_1",
+          "category": "book",
+          "bbox": [
+            357.44,
+            50.94,
+            100.9,
+            100.9
+          ]
+        },
+        {
+          "id": "book_2",
+          "category": "book",
+          "bbox": [
+            162.5,
+            144.96,
+            109.76,
+            72.66
+          ]
+        },
+        {
+          "id": "book_3",
+          "category": "book",
+          "bbox": [
+            393.18,
+            242.23,
+            48.05,
+            63.82
+          ]
+        },
+        {
+          "id": "bottle_1",
+          "category": "bottle",
+          "bbox": [
+            133.93,
+            43.29,
+            88.18,
+            34.24
+          ]
+        },
+        {
+          "id": "bottle_2",
+          "category": "bottle",
+          "bbox": [
+            276.61,
+            208.63,
+            29.84,
+            91.13
+          ]
+        },
+        {
+          "id": "bottle_3",
+          "category": "bottle",
+          "bbox": [
+            270.57,
+            136.85,
+            91.24,
+            28.92
+          ]
+        }
+      ],
+      "target_object_id": "book_2",
+      "relation_object_id": "bottle_1",
+      "scene_type": "office",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "book_2"
+        },
+        {
+          "action": "grasp",
+          "target": "book_2"
+        },
+        {
+          "action": "move_to",
+          "target": "bottle_1"
+        },
+        {
+          "action": "release",
+          "target": "book_2"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 52,
+    "image": "coco_val2017_subset_v3/000000144003.jpg",
+    "instruction": "Pick up the dining table and place it next to the chair",
+    "reasoning_type": "multi_step",
+    "difficulty_level": 4,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            123.7,
+            177.27,
+            252.27,
+            192.86
+          ]
+        },
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            368.39,
+            174.87,
+            101.52,
+            185.34
+          ]
+        },
+        {
+          "id": "bowl_1",
+          "category": "bowl",
+          "bbox": [
+            371.87,
+            202.37,
+            55.06,
+            46.36
+          ]
+        }
+      ],
+      "target_object_id": "dining_table_1",
+      "relation_object_id": "chair_1",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "dining_table_1"
+        },
+        {
+          "action": "grasp",
+          "target": "dining_table_1"
+        },
+        {
+          "action": "move_to",
+          "target": "chair_1"
+        },
+        {
+          "action": "release",
+          "target": "dining_table_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 53,
+    "image": "coco_val2017_subset_v3/000000142620.jpg",
+    "instruction": "Pick up the dining table and place it next to the bowl",
+    "reasoning_type": "multi_step",
+    "difficulty_level": 4,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            0.0,
+            203.89,
+            354.28,
+            217.32
+          ]
+        },
+        {
+          "id": "chair_2",
+          "category": "chair",
+          "bbox": [
+            503.54,
+            113.63,
+            136.46,
+            303.46
+          ]
+        },
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            158.31,
+            104.1,
+            187.1,
+            165.03
+          ]
+        },
+        {
+          "id": "bowl_2",
+          "category": "bowl",
+          "bbox": [
+            253.77,
+            321.42,
+            101.05,
+            54.37
+          ]
+        },
+        {
+          "id": "bottle_1",
+          "category": "bottle",
+          "bbox": [
+            110.62,
+            203.7,
+            37.68,
+            111.85
+          ]
+        },
+        {
+          "id": "bottle_2",
+          "category": "bottle",
+          "bbox": [
+            74.2,
+            280.99,
+            49.76,
+            79.26
+          ]
+        },
+        {
+          "id": "bowl_1",
+          "category": "bowl",
+          "bbox": [
+            99.86,
+            350.75,
+            60.42,
+            48.59
+          ]
+        }
+      ],
+      "target_object_id": "dining_table_1",
+      "relation_object_id": "bowl_1",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "dining_table_1"
+        },
+        {
+          "action": "grasp",
+          "target": "dining_table_1"
+        },
+        {
+          "action": "move_to",
+          "target": "bowl_1"
+        },
+        {
+          "action": "release",
+          "target": "dining_table_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 54,
+    "image": "coco_val2017_subset_v3/000000329319.jpg",
+    "instruction": "Pick up the chair and place it next to the dining table",
+    "reasoning_type": "multi_step",
+    "difficulty_level": 4,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            157.46,
+            237.09,
+            270.54,
+            402.91
+          ]
+        },
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            0.0,
+            106.43,
+            132.31,
+            217.17
+          ]
+        }
+      ],
+      "target_object_id": "chair_1",
+      "relation_object_id": "dining_table_1",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [
+        {
+          "action": "move_to",
+          "target": "chair_1"
+        },
+        {
+          "action": "grasp",
+          "target": "chair_1"
+        },
+        {
+          "action": "move_to",
+          "target": "dining_table_1"
+        },
+        {
+          "action": "release",
+          "target": "chair_1"
+        }
+      ],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 55,
+    "image": "coco_val2017_subset_v3/000000277051.jpg",
+    "instruction": "Pick up the red bottle",
+    "reasoning_type": "negative",
+    "difficulty_level": 5,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            0.0,
+            284.03,
+            640.0,
+            138.17
+          ]
+        },
+        {
+          "id": "bottle_1",
+          "category": "bottle",
+          "bbox": [
+            55.45,
+            3.33,
+            130.88,
+            302.78
+          ]
+        },
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            427.0,
+            65.2,
+            151.52,
+            112.95
+          ]
+        },
+        {
+          "id": "dining_table_2",
+          "category": "dining table",
+          "bbox": [
+            472.1,
+            133.08,
+            167.9,
+            41.26
+          ]
+        }
+      ],
+      "target_object_id": "",
+      "relation_object_id": "",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 56,
+    "image": "coco_val2017_subset_v3/000000231879.jpg",
+    "instruction": "Pick up the right dining table",
+    "reasoning_type": "negative",
+    "difficulty_level": 5,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            453.76,
+            270.92,
+            184.76,
+            149.34
+          ]
+        },
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            527.7,
+            183.74,
+            112.3,
+            172.7
+          ]
+        }
+      ],
+      "target_object_id": "",
+      "relation_object_id": "",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 57,
+    "image": "coco_val2017_subset_v3/000000316666.jpg",
+    "instruction": "Pick up the right bottle",
+    "reasoning_type": "negative",
+    "difficulty_level": 5,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            96.93,
+            315.1,
+            405.95,
+            61.54
+          ]
+        },
+        {
+          "id": "bottle_1",
+          "category": "bottle",
+          "bbox": [
+            456.24,
+            218.3,
+            48.86,
+            99.95
+          ]
+        }
+      ],
+      "target_object_id": "",
+      "relation_object_id": "",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 58,
+    "image": "coco_val2017_subset_v3/000000450303.jpg",
+    "instruction": "Pick up the red laptop",
+    "reasoning_type": "negative",
+    "difficulty_level": 5,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            127.62,
+            252.99,
+            408.85,
+            128.75
+          ]
+        },
+        {
+          "id": "chair_2",
+          "category": "chair",
+          "bbox": [
+            35.55,
+            293.03,
+            94.67,
+            136.14
+          ]
+        },
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            0.0,
+            411.38,
+            154.63,
+            62.28
+          ]
+        },
+        {
+          "id": "chair_3",
+          "category": "chair",
+          "bbox": [
+            583.55,
+            278.73,
+            56.34,
+            56.35
+          ]
+        },
+        {
+          "id": "laptop_1",
+          "category": "laptop",
+          "bbox": [
+            403.92,
+            259.72,
+            52.91,
+            58.84
+          ]
+        }
+      ],
+      "target_object_id": "",
+      "relation_object_id": "",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 59,
+    "image": "coco_val2017_subset_v3/000000474854.jpg",
+    "instruction": "Pick up the right dining table",
+    "reasoning_type": "negative",
+    "difficulty_level": 5,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "dining_table_1",
+          "category": "dining table",
+          "bbox": [
+            3.01,
+            537.7,
+            418.64,
+            94.87
+          ]
+        },
+        {
+          "id": "chair_1",
+          "category": "chair",
+          "bbox": [
+            38.37,
+            338.7,
+            41.12,
+            143.89
+          ]
+        }
+      ],
+      "target_object_id": "",
+      "relation_object_id": "",
+      "scene_type": "dining_table",
+      "expected_action_sequence": [],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  },
+  {
+    "id": 60,
+    "image": "coco_val2017_subset_v3/000000239627.jpg",
+    "instruction": "Pick up the red bottle",
+    "reasoning_type": "negative",
+    "difficulty_level": 5,
+    "ground_truth": {
+      "objects": [
+        {
+          "id": "bottle_2",
+          "category": "bottle",
+          "bbox": [
+            464.65,
+            0.98,
+            89.07,
+            105.6
+          ]
+        },
+        {
+          "id": "bottle_1",
+          "category": "bottle",
+          "bbox": [
+            389.58,
+            0.02,
+            75.05,
+            111.92
+          ]
+        },
+        {
+          "id": "cup_4",
+          "category": "cup",
+          "bbox": [
+            358.5,
+            325.39,
+            108.46,
+            67.36
+          ]
+        },
+        {
+          "id": "cup_3",
+          "category": "cup",
+          "bbox": [
+            439.55,
+            265.8,
+            72.57,
+            75.5
+          ]
+        },
+        {
+          "id": "cup_1",
+          "category": "cup",
+          "bbox": [
+            331.79,
+            212.33,
+            63.94,
+            71.98
+          ]
+        },
+        {
+          "id": "cup_5",
+          "category": "cup",
+          "bbox": [
+            413.33,
+            193.47,
+            65.83,
+            66.2
+          ]
+        },
+        {
+          "id": "cup_2",
+          "category": "cup",
+          "bbox": [
+            329.32,
+            278.77,
+            56.43,
+            59.51
+          ]
+        }
+      ],
+      "target_object_id": "",
+      "relation_object_id": "",
+      "scene_type": "kitchen",
+      "expected_action_sequence": [],
+      "hardware_constraints": {
+        "joint_angle_range": [
+          -90,
+          90
+        ],
+        "grip_force_range": [
+          0,
+          30
+        ],
+        "move_speed_range": [
+          0,
+          1.0
+        ]
+      }
+    }
+  }
+]
