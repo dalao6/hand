@@ -49,6 +49,31 @@ def _normalize_target(s: str) -> str:
     return str(s).strip().lower()
 
 
+def _normalize_obj_label(s: Any) -> str:
+    x = str(s).strip().lower().replace("_", " ").replace("-", " ")
+    x = " ".join(x.split())
+    if not x:
+        return ""
+    alias = {
+        "diningtable": "dining table",
+        "dinner table": "dining table",
+        "table": "dining table",
+        "books": "book",
+        "chairs": "chair",
+        "bottles": "bottle",
+        "cups": "cup",
+        "bowls": "bowl",
+        "laptops": "laptop",
+        "mice": "mouse",
+        "remotes": "remote",
+    }
+    if x in alias:
+        return alias[x]
+    if len(x) > 3 and x.endswith("s") and x[:-1] in {"book", "chair", "bottle", "cup", "bowl", "laptop", "mouse", "remote", "backpack"}:
+        return x[:-1]
+    return x
+
+
 _SCENE_LABELS = {"dining_table", "office", "kitchen", "indoor", "unknown"}
 
 
@@ -219,9 +244,9 @@ def _plot_scene_diagnostics(models: List[str], acc: List[float], valid_rate: Lis
     xs = list(range(len(models)))
     w = 0.25
     plt.figure(figsize=(8, 5))
-    b1 = plt.bar([x - w for x in xs], acc, width=w, label="scene_acc", edgecolor="black", linewidth=0.8)
-    b2 = plt.bar(xs, valid_rate, width=w, label="valid_scene_rate", edgecolor="black", linewidth=0.8)
-    b3 = plt.bar([x + w for x in xs], valid_acc, width=w, label="valid_scene_acc", edgecolor="black", linewidth=0.8)
+    b1 = plt.bar([x - w for x in xs], acc, width=w, label="场景分类准确率", edgecolor="black", linewidth=0.8)
+    b2 = plt.bar(xs, valid_rate, width=w, label="有效场景占比", edgecolor="black", linewidth=0.8)
+    b3 = plt.bar([x + w for x in xs], valid_acc, width=w, label="有效场景准确率", edgecolor="black", linewidth=0.8)
     ymax = max(acc + valid_rate + valid_acc) if (acc or valid_rate or valid_acc) else 0.0
     plt.ylim(0.0, ymax * 1.2 if ymax > 0 else 1.0)
     for b, v in list(zip(b1, acc)) + list(zip(b2, valid_rate)) + list(zip(b3, valid_acc)):
@@ -243,6 +268,7 @@ def run_evaluation_v3(
     max_items: int = 0,
     enable_stress_test: bool = False,
     qwen_deterministic: bool = True,
+    focus_metrics_only: bool = False,
 ) -> str:
     _ensure_dir(out_dir)
     plot_dir = os.path.join(out_dir, "plots")
@@ -270,9 +296,32 @@ def run_evaluation_v3(
                 f"Invalid scene_type '{raw_scene}' at index={i}; please use v3 dataset with canonical scene labels"
             )
 
-    models = [SmolVLMModel(), QwenVLModel(deterministic=qwen_deterministic)]
+    # 避免双模型同时占满显存：默认将 Smol 放到 CPU，Qwen 继续走 auto。
+    smol_device_map = os.getenv("SMOL_DEVICE_MAP", "cpu" if torch.cuda.is_available() else "auto")
+    smol_dtype = torch.float32 if smol_device_map == "cpu" else torch.float16
+    smol_max_new_tokens = max(16, int(os.getenv("SMOL_MAX_NEW_TOKENS", "96")))
 
-    sbert = _load_sbert()
+    qwen_device_map = os.getenv("QWEN_DEVICE_MAP", "auto")
+    qwen_dm_norm = str(qwen_device_map).strip().lower()
+    qwen_dtype = torch.float32 if qwen_dm_norm in {"cpu", "none", "null", "off"} else torch.float16
+    qwen_max_new_tokens = max(16, int(os.getenv("QWEN_MAX_NEW_TOKENS", "128")))
+
+    models = [
+        SmolVLMModel(device_map=smol_device_map, dtype=smol_dtype, max_new_tokens=smol_max_new_tokens),
+        QwenVLModel(
+            deterministic=qwen_deterministic,
+            device_map=qwen_device_map,
+            dtype=qwen_dtype,
+            max_new_tokens=qwen_max_new_tokens,
+        ),
+    ]
+
+    # fallback 相关策略：聚焦指标模式默认启用，避免被兜底动作“掩盖”空输出/非法动作问题。
+    strict_no_fallback = os.getenv("STRICT_NO_FALLBACK", "0").strip().lower() not in {"0", "false", "no"}
+    fallback_counts_as_empty = os.getenv("FALLBACK_COUNTS_AS_EMPTY", "1" if focus_metrics_only else "0").strip().lower() not in {"0", "false", "no"}
+    fallback_counts_as_illegal = os.getenv("FALLBACK_COUNTS_AS_ILLEGAL", "1" if focus_metrics_only else "0").strip().lower() not in {"0", "false", "no"}
+
+    sbert = None if focus_metrics_only else _load_sbert()
 
     per_model: Dict[str, Dict[str, Any]] = {
         m.name: {
@@ -335,9 +384,11 @@ def run_evaluation_v3(
                 rel_gt_objs.append(id_to_cat[rel_id])
             if not rel_gt_objs:
                 rel_gt_objs = sorted(gt_cat_set)
+            rel_gt_objs = [_normalize_obj_label(x) for x in rel_gt_objs if _normalize_obj_label(x)]
 
             for model in models:
                 runs: List[List[Dict[str, Any]]] = []
+                fallback_flags: List[bool] = []
                 raws: List[str] = []
                 ts: List[float] = []
                 ms: List[int] = []
@@ -349,22 +400,33 @@ def run_evaluation_v3(
                     try:
                         out = _model_infer(model=model, image=image, instruction=instruction, objects=gt_target_space)
                     except Exception as e:
+                        elapsed = max(time.time() - t0, 0.0)
                         out = {
                             "action_sequence": [],
                             "raw_text": str(e),
-                            "inference_time": 0.0,
-                            "gpu_memory": 0,
+                            # 失败样本也记录真实耗时，避免平均时延被 0 人为拉低
+                            "inference_time": elapsed,
+                            "gpu_memory": int(torch.cuda.max_memory_allocated()) if torch.cuda.is_available() else 0,
+                            "used_fallback": False,
                         }
                         infer_error_type = _classify_error(e)
                         infer_traceback = _traceback_text()
                     t1 = time.time()
                     seq = out.get("action_sequence", []) if isinstance(out, dict) else []
+                    used_fallback = bool(out.get("used_fallback", False)) if isinstance(out, dict) else False
+                    if strict_no_fallback and used_fallback:
+                        seq = []
                     runs.append(seq if isinstance(seq, list) else [])
+                    fallback_flags.append(used_fallback)
                     raws.append(str(out.get("raw_text", "")) if isinstance(out, dict) else "")
                     ts.append(float(out.get("inference_time", max(t1 - t0, 0.0))) if isinstance(out, dict) else max(t1 - t0, 0.0))
                     ms.append(int(out.get("gpu_memory", 0)) if isinstance(out, dict) else 0)
 
                 rep = pick_representative(runs)
+                rep_key = _seq_key(rep)
+                rep_idx = next((i for i, seq in enumerate(runs) if _seq_key(seq) == rep_key), 0)
+                rep_used_fallback = fallback_flags[rep_idx] if 0 <= rep_idx < len(fallback_flags) else False
+
                 cons = consistency_rate(runs)
                 txt = actions_to_text(rep)
                 sim = 0.0
@@ -377,14 +439,16 @@ def run_evaluation_v3(
                         print(f"[warn] sbert encoding failed; semantic similarity set to 0. error: {e}")
 
                 corrected, exe, cost = check_executable(rep, gt_target_space, hw)
-                empty = 1.0 if len(rep) == 0 else 0.0
+                empty = 1.0 if (len(rep) == 0 or (fallback_counts_as_empty and rep_used_fallback)) else 0.0
                 alen = float(len(rep))
 
                 if rep:
                     illegal = sum(1 for a in rep if str(a.get("action", "")) not in LEGAL_ACTIONS) / len(rep)
+                    if fallback_counts_as_illegal and rep_used_fallback:
+                        illegal = max(illegal, 1.0 / len(rep))
                     mismatch = sum(1 for a in rep if not _target_matches(str(a.get("target", "")).strip().lower(), set(gt_target_space))) / len(rep)
                 else:
-                    illegal = 0.0
+                    illegal = 1.0 if (fallback_counts_as_illegal and rep_used_fallback) else 0.0
                     mismatch = 1.0
 
                 if reasoning_type == "negative":
@@ -400,7 +464,12 @@ def run_evaluation_v3(
                     obj_out = {"objects": [], "scene_type": "", "raw_text": str(e)}
                     obj_error_type = _classify_error(e)
                     obj_traceback = _traceback_text()
-                pred_objs = obj_out.get("objects", []) if isinstance(obj_out, dict) and isinstance(obj_out.get("objects"), list) else []
+                pred_objs_raw = obj_out.get("objects", []) if isinstance(obj_out, dict) and isinstance(obj_out.get("objects"), list) else []
+                pred_objs = []
+                for x in pred_objs_raw:
+                    nx = _normalize_obj_label(x)
+                    if nx and nx not in pred_objs:
+                        pred_objs.append(nx)
                 pred_objs = pred_objs[:5]
                 pred_scene = _normalize_scene_label(obj_out.get("scene_type", "") if isinstance(obj_out, dict) else "")
 
@@ -526,33 +595,43 @@ def run_evaluation_v3(
         )
 
     all_csv = os.path.join(out_dir, "all_results.csv")
+    all_fieldnames = [
+        "model",
+        "empty_output_rate",
+        "illegal_action_rate",
+        "precision",
+        "recall",
+        "scene_accuracy",
+        "valid_scene_rate",
+        "valid_scene_accuracy",
+    ] if focus_metrics_only else [
+        "model",
+        "consistency_rate",
+        "semantic_similarity",
+        "avg_action_len",
+        "executable_rate",
+        "correction_cost",
+        "illegal_action_rate",
+        "target_mismatch_rate",
+        "avg_inference_time",
+        "latency_std",
+        "avg_gpu_memory",
+        "stress_gpu_memory",
+        "precision",
+        "recall",
+        "scene_accuracy",
+        "valid_scene_rate",
+        "valid_scene_accuracy",
+        "empty_output_rate",
+        "complex_reasoning_success_rate",
+    ]
     with open(all_csv, "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(
-            f,
-            fieldnames=[
-                "model",
-                "consistency_rate",
-                "semantic_similarity",
-                "avg_action_len",
-                "executable_rate",
-                "correction_cost",
-                "illegal_action_rate",
-                "target_mismatch_rate",
-                "avg_inference_time",
-                "latency_std",
-                "avg_gpu_memory",
-                "stress_gpu_memory",
-                "precision",
-                "recall",
-                "scene_accuracy",
-                "valid_scene_rate",
-                "valid_scene_accuracy",
-                "empty_output_rate",
-                "complex_reasoning_success_rate",
-            ],
-        )
+        w = csv.DictWriter(f, fieldnames=all_fieldnames)
         w.writeheader()
-        w.writerows(rows)
+        if focus_metrics_only:
+            w.writerows([{k: r.get(k, "") for k in all_fieldnames} for r in rows])
+        else:
+            w.writerows(rows)
 
     sample_csv = os.path.join(out_dir, "sample_metrics.csv")
     with open(sample_csv, "w", newline="", encoding="utf-8") as f:
@@ -562,58 +641,88 @@ def run_evaluation_v3(
             w.writerows(sample_rows)
 
     names = [r["model"] for r in rows]
-    _plot_bar(names, [float(r["consistency_rate"]) for r in rows], "一致性", "consistency", os.path.join(plot_dir, "consistency.png"))
-    _plot_bar(names, [float(r["semantic_similarity"]) for r in rows], "语义相似度", "semantic", os.path.join(plot_dir, "semantic.png"))
-    _plot_bar(names, [float(r["executable_rate"]) for r in rows], "可执行率", "rate", os.path.join(plot_dir, "executable.png"))
+    if focus_metrics_only:
+        _plot_bar(names, [float(r["empty_output_rate"]) for r in rows], "空输出率对比", "rate", os.path.join(plot_dir, "empty_output_rate.png"))
+        _plot_bar(names, [float(r["illegal_action_rate"]) for r in rows], "非法动作率对比", "rate", os.path.join(plot_dir, "illegal_action_rate.png"))
+        _plot_bar(names, [float(r["scene_accuracy"]) for r in rows], "场景分类准确率对比", "score", os.path.join(plot_dir, "scene_accuracy.png"))
+        _plot_precision_recall(
+            names,
+            [float(r["precision"]) for r in rows],
+            [float(r["recall"]) for r in rows],
+            os.path.join(plot_dir, "precision_recall.png"),
+        )
+        _plot_scene_diagnostics(
+            names,
+            [float(r["scene_accuracy"]) for r in rows],
+            [float(r["valid_scene_rate"]) for r in rows],
+            [float(r["valid_scene_accuracy"]) for r in rows],
+            os.path.join(plot_dir, "scene_diagnostics.png"),
+        )
+    else:
+        _plot_bar(names, [float(r["consistency_rate"]) for r in rows], "一致性", "consistency", os.path.join(plot_dir, "consistency.png"))
+        _plot_bar(names, [float(r["semantic_similarity"]) for r in rows], "语义相似度", "semantic", os.path.join(plot_dir, "semantic.png"))
+        _plot_bar(names, [float(r["executable_rate"]) for r in rows], "可执行率", "rate", os.path.join(plot_dir, "executable.png"))
 
-    # inference time
-    plt.figure(figsize=(7, 5))
-    vals = [float(r["avg_inference_time"]) for r in rows]
-    bars = plt.bar(names, vals, edgecolor="black", linewidth=0.8)
-    ymax = max(vals) if vals else 0.0
-    plt.ylim(0.0, ymax * 1.2 if ymax > 0 else 1.0)
-    plt.title("推理时间")
-    plt.ylabel("秒")
-    for b, v in zip(bars, vals):
-        plt.text(b.get_x() + b.get_width() / 2, v + 0.02 * (ymax if ymax > 0 else 1.0), f"{v:.2f}s", ha="center", va="bottom", fontsize=9)
-    plt.xticks(rotation=15, ha="right")
-    plt.tight_layout()
-    plt.savefig(os.path.join(plot_dir, "inference_time.png"), dpi=200)
-    plt.close()
+        # inference time
+        plt.figure(figsize=(7, 5))
+        vals = [float(r["avg_inference_time"]) for r in rows]
+        bars = plt.bar(names, vals, edgecolor="black", linewidth=0.8)
+        ymax = max(vals) if vals else 0.0
+        plt.ylim(0.0, ymax * 1.2 if ymax > 0 else 1.0)
+        plt.title("推理时间")
+        plt.ylabel("秒")
+        for b, v in zip(bars, vals):
+            plt.text(b.get_x() + b.get_width() / 2, v + 0.02 * (ymax if ymax > 0 else 1.0), f"{v:.2f}s", ha="center", va="bottom", fontsize=9)
+        plt.xticks(rotation=15, ha="right")
+        plt.tight_layout()
+        plt.savefig(os.path.join(plot_dir, "inference_time.png"), dpi=200)
+        plt.close()
 
-    # memory
-    plt.figure(figsize=(7, 5))
-    mem = [float(r["stress_gpu_memory"]) / (1024 ** 2) for r in rows]
-    bars = plt.bar(names, mem, edgecolor="black", linewidth=0.8)
-    ymax = max(mem) if mem else 0.0
-    plt.ylim(0.0, ymax * 1.2 if ymax > 0 else 1024.0)
-    plt.title("显存占用（压力测试）")
-    plt.ylabel("MB")
-    for b, v in zip(bars, mem):
-        plt.text(b.get_x() + b.get_width() / 2, v + 0.02 * (ymax if ymax > 0 else 1024.0), f"{v:.0f}", ha="center", va="bottom", fontsize=9)
-    plt.xticks(rotation=15, ha="right")
-    plt.tight_layout()
-    plt.savefig(os.path.join(plot_dir, "memory.png"), dpi=200)
-    plt.close()
+        # memory
+        plt.figure(figsize=(7, 5))
+        mem = [float(r["stress_gpu_memory"]) / (1024 ** 2) for r in rows]
+        bars = plt.bar(names, mem, edgecolor="black", linewidth=0.8)
+        ymax = max(mem) if mem else 0.0
+        plt.ylim(0.0, ymax * 1.2 if ymax > 0 else 1024.0)
+        plt.title("显存占用（压力测试）")
+        plt.ylabel("MB")
+        for b, v in zip(bars, mem):
+            plt.text(b.get_x() + b.get_width() / 2, v + 0.02 * (ymax if ymax > 0 else 1024.0), f"{v:.0f}", ha="center", va="bottom", fontsize=9)
+        plt.xticks(rotation=15, ha="right")
+        plt.tight_layout()
+        plt.savefig(os.path.join(plot_dir, "memory.png"), dpi=200)
+        plt.close()
 
-    _plot_precision_recall(names, [float(r["precision"]) for r in rows], [float(r["recall"]) for r in rows], os.path.join(plot_dir, "precision_recall.png"))
-    _plot_scene_diagnostics(
-        names,
-        [float(r["scene_accuracy"]) for r in rows],
-        [float(r["valid_scene_rate"]) for r in rows],
-        [float(r["valid_scene_accuracy"]) for r in rows],
-        os.path.join(plot_dir, "scene_diagnostics.png"),
-    )
-    _plot_difficulty_curve(sample_rows, names, os.path.join(plot_dir, "difficulty_curve.png"))
+        _plot_precision_recall(names, [float(r["precision"]) for r in rows], [float(r["recall"]) for r in rows], os.path.join(plot_dir, "precision_recall.png"))
+        _plot_scene_diagnostics(
+            names,
+            [float(r["scene_accuracy"]) for r in rows],
+            [float(r["valid_scene_rate"]) for r in rows],
+            [float(r["valid_scene_accuracy"]) for r in rows],
+            os.path.join(plot_dir, "scene_diagnostics.png"),
+        )
+        _plot_difficulty_curve(sample_rows, names, os.path.join(plot_dir, "difficulty_curve.png"))
 
     print("=============================")
     print("双 VLM 机器人控制评估系统（升级版 v3）")
     print("=============================")
     print(f"samples={len(dataset)}, repeat={repeat}")
     print(f"results_dir={out_dir}")
+    print_keys = [
+        "model",
+        "empty_output_rate",
+        "illegal_action_rate",
+        "precision",
+        "recall",
+        "scene_accuracy",
+        "valid_scene_rate",
+        "valid_scene_accuracy",
+    ] if focus_metrics_only else list(rows[0].keys()) if rows else []
+
     for r in rows:
         print("---")
-        for k, v in r.items():
+        for k in print_keys:
+            v = r.get(k, "")
             if k == "model":
                 print(f"model: {v}")
             else:

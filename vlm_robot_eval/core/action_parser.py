@@ -277,7 +277,11 @@ def parse_action_json(text: str) -> Dict[str, Any]:
     if isinstance(obj, dict) and isinstance(obj.get("action_sequence"), list):
         seq = obj.get("action_sequence", [])
     elif isinstance(obj, list):
-        seq = obj
+        # 兼容部分 VLM 输出: [{"action_sequence": [...]}]
+        if len(obj) == 1 and isinstance(obj[0], dict) and isinstance(obj[0].get("action_sequence"), list):
+            seq = obj[0].get("action_sequence", [])
+        else:
+            seq = obj
     elif isinstance(obj, dict) and isinstance(obj.get("action"), str) and isinstance(obj.get("target"), str):
         seq = [obj]
     else:

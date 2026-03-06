@@ -82,12 +82,18 @@ class QwenVLModel:
 
         offload_dir = os.getenv("VLM_OFFLOAD_DIR", "/tmp/vlm_offload")
         os.makedirs(offload_dir, exist_ok=True)
+
+        dm_raw = str(device_map).strip().lower() if device_map is not None else ""
+        resolved_device_map: Any = None if dm_raw in {"", "none", "null", "off"} else device_map
+
         load_kwargs: Dict[str, Any] = {
             "torch_dtype": dtype,
-            "device_map": device_map,
             "low_cpu_mem_usage": True,
         }
-        if device_map == "auto":
+        if resolved_device_map is not None:
+            load_kwargs["device_map"] = resolved_device_map
+
+        if resolved_device_map == "auto":
             mm = _resolve_max_memory()
             if mm:
                 load_kwargs["max_memory"] = mm
@@ -210,10 +216,13 @@ class QwenVLModel:
         gen = self._generate(image=image, prompt=prompt)
         parsed = parse_action_json(gen.get("raw_text", ""))
         seq = parsed.get("action_sequence", [])
+        used_fallback = False
         if not seq:
+            used_fallback = True
             seq = build_action_fallback(instruction=instruction, objects=obj_list)
         return {
             "action_sequence": seq,
+            "used_fallback": used_fallback,
             **gen,
         }
 

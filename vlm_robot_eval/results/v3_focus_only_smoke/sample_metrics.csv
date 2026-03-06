@@ -1,0 +1,13 @@
+model,sample_id,reasoning_type,difficulty_level,consistency_rate,semantic_similarity,avg_action_len,executable_rate,correction_cost,illegal_action_rate,target_mismatch_rate,avg_inference_time,latency_std,avg_gpu_memory,precision,recall,scene_accuracy,valid_scene,valid_scene_accuracy,empty_output_rate,task_success,infer_error_type,obj_error_type
+SmolVLM-256M-Instruct,1,simple,1,1.0,0.0,2.0,1.0,0.0,0.0,0.0,7.74175295799796,0.0,4117894656.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,none,none
+Qwen2.5-VL-3B-Instruct,1,simple,1,1.0,0.0,2.0,1.0,0.0,0.0,0.0,6.344544852996478,0.0,4320529920.0,0.0,0.0,1.0,1.0,1.0,0.0,1.0,none,none
+SmolVLM-256M-Instruct,2,simple,1,1.0,0.0,2.0,1.0,0.0,0.0,0.0,7.809883745998377,0.0,4126414848.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,none,none
+Qwen2.5-VL-3B-Instruct,2,simple,1,1.0,0.0,2.0,1.0,0.0,0.0,0.0,5.868079861000297,0.0,4320879104.0,0.3333333333333333,1.0,1.0,1.0,1.0,0.0,1.0,none,none
+SmolVLM-256M-Instruct,3,simple,1,1.0,0.0,3.0,0.0,1.0,0.3333333333333333,1.0,10.00527756199881,0.0,4126414848.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,none,none
+Qwen2.5-VL-3B-Instruct,3,simple,1,1.0,0.0,1.0,1.0,0.0,0.0,0.0,11.71039749499323,0.0,4317735424.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,none,none
+SmolVLM-256M-Instruct,4,simple,1,1.0,0.0,2.0,1.0,0.0,0.0,0.0,7.726422587998968,0.0,4126414848.0,0.0,0.0,1.0,1.0,1.0,0.0,1.0,none,none
+Qwen2.5-VL-3B-Instruct,4,simple,1,1.0,0.0,2.0,1.0,0.0,0.0,0.0,5.8137046819974785,0.0,4300196864.0,0.3333333333333333,1.0,1.0,1.0,1.0,0.0,1.0,none,none
+SmolVLM-256M-Instruct,5,simple,1,1.0,0.0,2.0,1.0,0.0,0.0,0.0,9.762175432995718,0.0,4126414848.0,0.0,0.0,1.0,1.0,1.0,0.0,1.0,none,none
+Qwen2.5-VL-3B-Instruct,5,simple,1,1.0,0.0,3.0,1.0,0.0,0.0,0.0,22.48980317400128,0.0,4332090880.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,none,none
+SmolVLM-256M-Instruct,6,simple,1,1.0,0.0,2.0,1.0,0.0,0.0,0.0,7.596181074004562,0.0,4126414848.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,none,none
+Qwen2.5-VL-3B-Instruct,6,simple,1,1.0,0.0,2.0,1.0,0.0,0.0,0.0,5.294137601995317,0.0,4251008512.0,0.3333333333333333,1.0,1.0,1.0,1.0,0.0,1.0,none,none

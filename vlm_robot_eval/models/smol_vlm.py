@@ -248,10 +248,13 @@ class SmolVLMModel:
         gen = self._generate(image=image, prompt=prompt)
         parsed = parse_action_json(gen.get("raw_text", ""))
         seq = parsed.get("action_sequence", [])
+        used_fallback = False
         if not seq:
+            used_fallback = True
             seq = build_action_fallback(instruction=instruction, objects=obj_list)
         return {
             "action_sequence": seq,
+            "used_fallback": used_fallback,
             **gen,
         }
 

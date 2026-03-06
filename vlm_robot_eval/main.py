@@ -16,7 +16,7 @@ def _safe_float(v: Any, default: float = 0.0) -> float:
         return default
 
 
-def _validate_v3(results_dir: str, expected_repeat: int, expected_samples: int) -> Tuple[bool, List[str]]:
+def _validate_v3(results_dir: str, expected_repeat: int, expected_samples: int, focus_metrics_only: bool = False) -> Tuple[bool, List[str]]:
     issues: List[str] = []
     all_csv = os.path.join(results_dir, "all_results.csv")
     sample_csv = os.path.join(results_dir, "sample_metrics.csv")
@@ -28,6 +28,12 @@ def _validate_v3(results_dir: str, expected_repeat: int, expected_samples: int) 
             issues.append(f"missing: {p}")
 
     expected_plots = [
+        "empty_output_rate.png",
+        "illegal_action_rate.png",
+        "precision_recall.png",
+        "scene_accuracy.png",
+        "scene_diagnostics.png",
+    ] if focus_metrics_only else [
         "consistency.png",
         "semantic.png",
         "executable.png",
@@ -70,6 +76,20 @@ def _validate_v3(results_dir: str, expected_repeat: int, expected_samples: int) 
     return len(issues) == 0, issues
 
 
+def _default_coco_root() -> str:
+    repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    for p in [
+        os.getenv("COCO_ROOT"),
+        os.getenv("COCO2017_ROOT"),
+        os.path.join(repo_root, "coco2017"),
+        os.path.join(repo_root, "vlm_robot_eval", "coco2017"),
+        os.path.expanduser("~/coco2017"),
+    ]:
+        if p and os.path.isdir(p):
+            return p
+    return os.path.join(repo_root, "coco2017")
+
+
 def main() -> None:
     here = os.path.dirname(__file__)
     dataset_v3 = os.path.join(here, "experiments", "ground_truth_dataset_v3.json")
@@ -78,7 +98,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--coco_root",
-        default=os.getenv("COCO2017_ROOT", os.path.expanduser("~/coco2017")),
+        default=_default_coco_root(),
         help="COCO 2017 root dir containing val2017/ and annotations/",
     )
     parser.add_argument("--samples", type=int, default=60)
@@ -89,6 +109,7 @@ def main() -> None:
     parser.add_argument("--results_root", default=results_root)
     parser.add_argument("--run_name", default="", help="results subdir name")
     parser.add_argument("--dataset", default=dataset_v3, help="Path to v3 dataset json")
+    parser.add_argument("--focus_metrics_only", action="store_true", help="Only output focused metrics and plots")
     args = parser.parse_args()
 
     run_name = args.run_name.strip() if isinstance(args.run_name, str) else ""
@@ -128,12 +149,14 @@ def main() -> None:
         max_items=args.samples,
         enable_stress_test=bool(args.enable_stress_test),
         qwen_deterministic=not bool(args.disable_qwen_deterministic),
+        focus_metrics_only=bool(args.focus_metrics_only),
     )
 
     ok, issues = _validate_v3(
         results_dir=out_dir,
         expected_repeat=args.repeat,
         expected_samples=args.samples,
+        focus_metrics_only=bool(args.focus_metrics_only),
     )
 
     print("\n[validate] result_dir:", out_dir)

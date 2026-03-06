@@ -246,11 +246,25 @@ def build_ground_truth_dataset(
     return out_json_path
 
 
+def _default_coco_root() -> str:
+    repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+    for p in [
+        os.getenv("COCO_ROOT"),
+        os.getenv("COCO2017_ROOT"),
+        os.path.join(repo_root, "coco2017"),
+        os.path.join(repo_root, "vlm_robot_eval", "coco2017"),
+        os.path.expanduser("~/coco2017"),
+    ]:
+        if p and os.path.isdir(p):
+            return p
+    return os.path.join(repo_root, "coco2017")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--coco_root",
-        default=os.getenv("COCO2017_ROOT", os.path.expanduser("~/coco2017")),
+        default=_default_coco_root(),
         help="COCO 2017 root dir containing val2017/ and annotations/",
     )
     parser.add_argument(
