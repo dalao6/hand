@@ -261,6 +261,243 @@ def _plot_scene_diagnostics(models: List[str], acc: List[float], valid_rate: Lis
     plt.close()
 
 
+def _norm_label(x: Any) -> str:
+    s = str(x).strip().lower().replace("-", "_").replace(" ", "_")
+    while "__" in s:
+        s = s.replace("__", "_")
+    return s
+
+
+def _bbox_center(b: List[float]) -> Tuple[float, float]:
+    if not isinstance(b, list) or len(b) != 4:
+        return 0.0, 0.0
+    x, y, w, h = [float(v) for v in b]
+    return x + w / 2.0, y + h / 2.0
+
+
+def _resolve_target_obj(target: str, objs: List[Dict[str, Any]]) -> Dict[str, Any]:
+    t = _norm_label(target)
+    if not t:
+        return {}
+    by_id = {_norm_label(o.get("id", "")): o for o in objs if isinstance(o, dict)}
+    if t in by_id:
+        return by_id[t]
+
+    by_cat: Dict[str, List[Dict[str, Any]]] = {}
+    for o in objs:
+        if not isinstance(o, dict):
+            continue
+        c = _norm_label(o.get("category", ""))
+        if c:
+            by_cat.setdefault(c, []).append(o)
+
+    if t in by_cat and by_cat[t]:
+        return by_cat[t][0]
+
+    t_base = t.split("_")[0]
+    if t_base in by_cat and by_cat[t_base]:
+        return by_cat[t_base][0]
+
+    for k, arr in by_cat.items():
+        if (t in k or k in t) and arr:
+            return arr[0]
+    return {}
+
+
+def _draw_overlay_figure(
+    image_path: str,
+    instruction: str,
+    objs: List[Dict[str, Any]],
+    target_id: str,
+    relation_id: str,
+    action_seq: List[Dict[str, Any]],
+    model: str,
+    sample_id: str,
+    task_success: float,
+    out_path: str,
+) -> None:
+    img = _load_image(image_path)
+    fig, ax = plt.subplots(figsize=(8, 6))
+    ax.imshow(img)
+    ax.axis("off")
+
+    for o in objs:
+        if not isinstance(o, dict):
+            continue
+        b = o.get("bbox", [])
+        if not isinstance(b, list) or len(b) != 4:
+            continue
+        x, y, w, h = [float(v) for v in b]
+        rect = plt.Rectangle((x, y), w, h, fill=False, edgecolor="white", linewidth=1.0, alpha=0.6)
+        ax.add_patch(rect)
+
+    for oid, color, tag in [(target_id, "lime", "T"), (relation_id, "orange", "R")]:
+        if not str(oid).strip():
+            continue
+        o = _resolve_target_obj(str(oid), objs)
+        b = o.get("bbox", []) if isinstance(o, dict) else []
+        if not isinstance(b, list) or len(b) != 4:
+            continue
+        x, y, w, h = [float(v) for v in b]
+        rect = plt.Rectangle((x, y), w, h, fill=False, edgecolor=color, linewidth=2.5)
+        ax.add_patch(rect)
+        ax.text(x, max(0.0, y - 3.0), f"{tag}:{o.get('id', '')}", color=color, fontsize=8, va="bottom")
+
+    prev_xy = None
+    for i, step in enumerate(action_seq, start=1):
+        if not isinstance(step, dict):
+            continue
+        act = str(step.get("action", "")).strip()
+        tgt = str(step.get("target", "")).strip()
+        o = _resolve_target_obj(tgt, objs)
+        b = o.get("bbox", []) if isinstance(o, dict) else []
+        if not isinstance(b, list) or len(b) != 4:
+            continue
+        cx, cy = _bbox_center(b)
+        color = plt.cm.tab10((i - 1) % 10)
+        ax.scatter([cx], [cy], c=[color], s=35)
+        ax.text(cx + 4.0, cy + 4.0, f"{i}:{act}", color="yellow", fontsize=8)
+        if prev_xy is not None:
+            ax.annotate("", xy=(cx, cy), xytext=prev_xy, arrowprops={"arrowstyle": "->", "color": color, "lw": 2.0})
+        prev_xy = (cx, cy)
+
+    title = f"{model} | sample={sample_id} | success={task_success:.0f}"
+    if instruction:
+        title = f"{title}\n{instruction[:120]}"
+    ax.set_title(title, fontsize=10)
+    plt.tight_layout()
+    plt.savefig(out_path, dpi=220)
+    plt.close(fig)
+
+
+def _build_paper_grid(image_paths: List[str], out_path: str, rows: int = 2, cols: int = 3) -> None:
+    n = rows * cols
+    show = image_paths[:n]
+    fig, axes = plt.subplots(rows, cols, figsize=(cols * 5.0, rows * 4.0))
+    axes_flat = axes.flatten() if hasattr(axes, "flatten") else [axes]
+    for i, ax in enumerate(axes_flat):
+        if i < len(show) and os.path.exists(show[i]):
+            try:
+                ax.imshow(_load_image(show[i]))
+                ax.set_title(os.path.basename(show[i]).replace(".png", ""), fontsize=8)
+            except Exception:
+                ax.text(0.5, 0.5, "load failed", ha="center", va="center")
+        ax.axis("off")
+    plt.tight_layout()
+    plt.savefig(out_path, dpi=220)
+    plt.close(fig)
+
+
+def _generate_paper_figures(dataset_path: str, out_dir: str, max_panels: int = 6) -> None:
+    debug_path = os.path.join(out_dir, "debug.jsonl")
+    if not os.path.exists(debug_path):
+        return
+
+    with open(dataset_path, "r", encoding="utf-8") as f:
+        dataset = json.load(f)
+    if not isinstance(dataset, list):
+        return
+
+    sample_map: Dict[str, Dict[str, Any]] = {}
+    for i, item in enumerate(dataset):
+        if not isinstance(item, dict):
+            continue
+        sid = str(item.get("id", i + 1))
+        sample_map[sid] = item
+
+    records: List[Dict[str, Any]] = []
+    with open(debug_path, "r", encoding="utf-8") as f:
+        for ln in f:
+            try:
+                rec = json.loads(ln)
+            except Exception:
+                continue
+            if not isinstance(rec, dict):
+                continue
+            if not isinstance(rec.get("rep_actions", []), list):
+                continue
+            records.append(rec)
+
+    if not records:
+        return
+
+    def _safe_int(v: Any, default: int = 0) -> int:
+        try:
+            return int(v)
+        except Exception:
+            return default
+
+    def _safe_float(v: Any, default: float = 0.0) -> float:
+        try:
+            return float(v)
+        except Exception:
+            return default
+
+    failed = [r for r in records if _safe_float(r.get("task_success", 0.0)) < 0.5]
+    succeeded = [r for r in records if _safe_float(r.get("task_success", 0.0)) >= 0.5]
+
+    def _rank_key(r: Dict[str, Any]) -> Tuple[float, float, float, float, str, str]:
+        difficulty = _safe_int(r.get("difficulty_level", 0))
+        success = _safe_float(r.get("task_success", 0.0))
+        mismatch = _safe_float(r.get("target_mismatch_rate", 0.0))
+        illegal = _safe_float(r.get("illegal_action_rate", 0.0))
+        return (
+            -float(difficulty),
+            float(success),
+            -float(mismatch),
+            -float(illegal),
+            str(r.get("model", "")),
+            str(r.get("sample_id", "")),
+        )
+
+    failed.sort(key=_rank_key)
+    succeeded.sort(key=_rank_key)
+    records = failed + succeeded
+
+    fig_dir = os.path.join(out_dir, "figures")
+    _ensure_dir(fig_dir)
+
+    exported: List[str] = []
+    for rec in records:
+        if len(exported) >= max_panels:
+            break
+        sid = str(rec.get("sample_id", ""))
+        model = str(rec.get("model", "model"))
+        sample = sample_map.get(sid)
+        if not isinstance(sample, dict):
+            continue
+
+        img_rel = str(sample.get("image", ""))
+        image_path = img_rel if os.path.isabs(img_rel) else os.path.join(os.path.dirname(dataset_path), img_rel)
+        if not os.path.exists(image_path):
+            continue
+
+        gt = sample.get("ground_truth", {}) if isinstance(sample.get("ground_truth"), dict) else {}
+        objs = gt.get("objects", []) if isinstance(gt.get("objects"), list) else []
+        action_seq = rec.get("rep_actions", []) if isinstance(rec.get("rep_actions"), list) else []
+        if not objs:
+            continue
+
+        fname = f"{model}_sample_{sid}.png".replace("/", "_").replace(" ", "_")
+        out_path = os.path.join(fig_dir, fname)
+        _draw_overlay_figure(
+            image_path=image_path,
+            instruction=str(sample.get("instruction", "")),
+            objs=objs,
+            target_id=str(gt.get("target_object_id", "")),
+            relation_id=str(gt.get("relation_object_id", "")),
+            action_seq=action_seq,
+            model=model,
+            sample_id=sid,
+            task_success=float(rec.get("task_success", 0.0)),
+            out_path=out_path,
+        )
+        exported.append(out_path)
+
+    if exported:
+        _build_paper_grid(exported, os.path.join(fig_dir, "paper_grid_2x3.png"), rows=2, cols=3)
+
+
 def run_evaluation_v3(
     dataset_path: str,
     out_dir: str,
@@ -702,6 +939,14 @@ def run_evaluation_v3(
             os.path.join(plot_dir, "scene_diagnostics.png"),
         )
         _plot_difficulty_curve(sample_rows, names, os.path.join(plot_dir, "difficulty_curve.png"))
+
+    try:
+        max_panels = max(1, int(os.getenv("PAPER_FIGURE_PANELS", "6")))
+        enabled = os.getenv("ENABLE_PAPER_FIGURES", "1").strip().lower() not in {"0", "false", "no"}
+        if enabled:
+            _generate_paper_figures(dataset_path=dataset_path, out_dir=out_dir, max_panels=max_panels)
+    except Exception as e:
+        print(f"[warn] paper figure generation skipped due to error: {e}")
 
     print("=============================")
     print("双 VLM 机器人控制评估系统（升级版 v3）")

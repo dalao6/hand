@@ -110,6 +110,16 @@ def main() -> None:
     parser.add_argument("--run_name", default="", help="results subdir name")
     parser.add_argument("--dataset", default=dataset_v3, help="Path to v3 dataset json")
     parser.add_argument("--focus_metrics_only", action="store_true", help="Only output focused metrics and plots")
+    parser.add_argument("--run_pybullet_closed_loop", action="store_true", help="Run PyBullet physical execution after language planning evaluation")
+    parser.add_argument("--sim_seed", type=int, default=42, help="Seed for PyBullet closed-loop simulation")
+    parser.add_argument("--sim_max_samples", type=int, default=12)
+    parser.add_argument("--sim_gui", action="store_true")
+    parser.add_argument("--sim_enable_domain_randomization", action="store_true")
+    parser.add_argument("--sim_domain_randomization_strength", type=float, default=0.2)
+    parser.add_argument("--sim_camera_pose_jitter", type=float, default=0.0)
+    parser.add_argument("--sim_camera_width", type=int, default=640)
+    parser.add_argument("--sim_camera_height", type=int, default=480)
+    parser.add_argument("--sim_camera_calibration_out", default="")
     args = parser.parse_args()
 
     run_name = args.run_name.strip() if isinstance(args.run_name, str) else ""
@@ -167,6 +177,27 @@ def main() -> None:
         for i, msg in enumerate(issues, start=1):
             print(f"  {i}. {msg}")
         sys.exit(2)
+
+    if bool(args.run_pybullet_closed_loop):
+        from vlm_robot_eval.experiments.pybullet_sim_minimal import run_minimal_sim
+
+        sim_out_dir = os.path.join(out_dir, "pybullet_closed_loop")
+        sim_grid = run_minimal_sim(
+            dataset_path=dataset_path,
+            out_dir=sim_out_dir,
+            debug_jsonl=os.path.join(out_dir, "debug.jsonl"),
+            max_samples=max(1, int(args.sim_max_samples)),
+            gui=bool(args.sim_gui),
+            seed=int(args.sim_seed),
+            enable_domain_randomization=bool(args.sim_enable_domain_randomization),
+            domain_randomization_strength=float(args.sim_domain_randomization_strength),
+            camera_pose_jitter=float(args.sim_camera_pose_jitter),
+            camera_width=max(16, int(args.sim_camera_width)),
+            camera_height=max(16, int(args.sim_camera_height)),
+            camera_calibration_out=str(args.sim_camera_calibration_out),
+        )
+        print("[closed-loop] sim_out_dir:", sim_out_dir)
+        print("[closed-loop] grid:", sim_grid)
 
     print(csv_path)
 

@@ -1,0 +1,2 @@
+n_samples,task_success_rate,sim_success_rate,closed_loop_success_rate,collision_rate,trajectory_length_mean,execution_time_mean,ee_final_error_mean,grasp_stability_mean,enable_domain_randomization_rate,domain_randomization_strength_mean,camera_pose_jitter_mean
+12,0.0,0.9166666666666666,0.0,0.006694803045349221,0.7175267448685444,0.031004539496886235,0.04938394934238998,0.7000000000000001,1.0,0.35000000000000003,0.019999999999999997

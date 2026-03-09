@@ -134,7 +134,28 @@ python3 -m vlm_robot_eval.main \
 
 ---
 
-## 7. 备注
+## 7. 闭环仿真与可视化（PyBullet）
+
+- 入口脚本：
+
+```bash
+python3 -m vlm_robot_eval.experiments.run_closed_loop_repro \
+  --run_name closed_loop_seed42_20260309_160011 \
+  --samples 60 \
+  --repeat 5 \
+  --sim_max_samples 12 \
+  --sim_camera_width 640 \
+  --sim_camera_height 480 \
+  # 可选：--sim_gui --sim_enable_domain_randomization --sim_camera_pose_jitter 0.02
+```
+
+- 输出目录：`vlm_robot_eval/results/<run_name>/pybullet_closed_loop/`
+  - `figures/`：正面/顶视/侧视的执行前后对比、6 宫格 (`paper_grid_2x3.png`)、成功/失败对比图，标题与提示均为中文。
+  - `trajectories/`：末端执行器 XY 轨迹图，标题与坐标轴为中文。
+  - `closed_loop_manifest.json`：记录本次参数与生成文件路径。
+- 若之前已生成英文图片，修改代码后需重新运行上面命令以覆盖生成中文版本。
+
+## 8. 备注
 
 - 若使用离线权重，请确保模型路径可访问（如 `SMOL_MODEL_PATH`、`QWEN_MODEL_PATH` 对应目录存在）。
 - 若显存不足，建议：

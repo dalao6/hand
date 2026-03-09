@@ -1,0 +1,20 @@
+{
+  "seed": 42,
+  "dataset": "/home/jiang/hand-main/vlm_robot_eval/experiments/ground_truth_dataset_v3.json",
+  "repeat": 5,
+  "samples": 60,
+  "sim_max_samples": 12,
+  "sim_enable_domain_randomization": true,
+  "sim_domain_randomization_strength": 0.35,
+  "sim_camera_pose_jitter": 0.02,
+  "sim_camera_width": 640,
+  "sim_camera_height": 480,
+  "out_dir": "/home/jiang/hand-main/vlm_robot_eval/results/closed_loop_seed42_20260309_181612",
+  "all_results_csv": "/home/jiang/hand-main/vlm_robot_eval/results/closed_loop_seed42_20260309_181612/all_results.csv",
+  "debug_jsonl": "/home/jiang/hand-main/vlm_robot_eval/results/closed_loop_seed42_20260309_181612/debug.jsonl",
+  "sim_summary_csv": "/home/jiang/hand-main/vlm_robot_eval/results/closed_loop_seed42_20260309_181612/pybullet_closed_loop/summary_metrics_sim.csv",
+  "sim_by_model_csv": "/home/jiang/hand-main/vlm_robot_eval/results/closed_loop_seed42_20260309_181612/pybullet_closed_loop/summary_metrics_sim_by_model.csv",
+  "sim_sample_csv": "/home/jiang/hand-main/vlm_robot_eval/results/closed_loop_seed42_20260309_181612/pybullet_closed_loop/sample_metrics_sim.csv",
+  "sim_camera_calibration_json": "/home/jiang/hand-main/vlm_robot_eval/results/closed_loop_seed42_20260309_181612/pybullet_closed_loop/camera_calibration.json",
+  "grid_path": "/home/jiang/hand-main/vlm_robot_eval/results/closed_loop_seed42_20260309_181612/pybullet_closed_loop/figures/paper_grid_2x3.png"
+}

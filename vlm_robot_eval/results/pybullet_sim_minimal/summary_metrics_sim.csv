@@ -1,0 +1,2 @@
+n_samples,sim_success_rate,collision_rate,trajectory_length_mean,execution_time_mean,ee_final_error_mean,grasp_stability_mean
+6,0.8333333333333334,0.00876779212181397,0.6033549713817964,0.021992136500557535,0.07893986051629164,0.4611111111111111
